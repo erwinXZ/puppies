@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-main',
@@ -7,7 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  constructor() { }
+  isMobileResolution: boolean = false;
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    this.setIsMobileResolution();
+  }
+
+  constructor() {
+    this.setIsMobileResolution();
+  }
+
+  private setIsMobileResolution() {
+    this.isMobileResolution = window.innerWidth < 768 ? this.isMobileResolution = true : this.isMobileResolution = false;
+  }
 
   ngOnInit(): void {
   }
