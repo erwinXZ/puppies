@@ -8,8 +8,8 @@ import { FooterComponent } from './public/layouts/footer/footer.component';
 import { MainComponent } from './public/layouts/main/main.component';
 import { NavbarComponent } from './public/layouts/navbar/navbar.component';
 import { SharedModule } from './shared/shared.module';
-
-
+import { SvgIconsModule } from '@ngneat/svg-icon';
+import { svgIconMore, svgIconHome } from '../assets/svg/svg-icon.model';
 
 @NgModule({
   declarations: [
@@ -22,7 +22,8 @@ import { SharedModule } from './shared/shared.module';
     SharedModule,
     RouterModule,
     HomeModule,
-    AdoptionModule
+    AdoptionModule,
+    SvgIconsModule.forRoot({ icons: [svgIconMore, svgIconHome] })
   ],
   bootstrap: [MainComponent]
 })
