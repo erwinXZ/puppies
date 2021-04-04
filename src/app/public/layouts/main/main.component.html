@@ -3,10 +3,10 @@
         <app-navbar></app-navbar>
     </div>
     <div>
-        <div class="blue">
+        <div>
             <router-outlet></router-outlet>
         </div>
-        <div *ngIf="!isMobileResolution" class="green">
+        <div *ngIf="!isMobileResolution">
             <app-footer></app-footer>
         </div>
     </div>

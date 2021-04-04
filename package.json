@@ -8,7 +8,9 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "generate-icons": "svg-to-ts"
+    "generate-icons": "svg-to-ts",
+    "deploy:dev": "firebase use dev && ng build --aot && firebase deploy --only hosting",
+    "deploy:prod": "firebase use prod && ng build --prod && firebase deploy --only hosting"
   },
   "private": true,
   "dependencies": {
@@ -25,7 +27,8 @@
     "@ng-bootstrap/ng-bootstrap": "^9.0.2",
     "@ngneat/svg-icon": "^3.1.1",
     "bootstrap": "^4.6.0",
-    "firebase": "^7.0 || ^8.0",
+    "firebase": "^8.3.1",
+    "moment": "^2.29.1",
     "ngx-bootstrap": "^6.2.0",
     "ngx-infinite-scroll": "^10.0.1",
     "rxjs": "~6.6.0",

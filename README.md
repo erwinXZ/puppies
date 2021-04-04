@@ -28,3 +28,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Generate icons
 To generate and use new icons install the package `npm install svg-to-ts` add new svg files in the `src/assets/svg` run `npm run generate-icons` and import new ts constant svg into `src/app/app.module.ts`.
+
+## Deploy Firebase
+To build and deploy project into the developer sandbox host  `npm run deploy:dev`.
+To build and deploy project into the production host `npm run deploy:prod`.
