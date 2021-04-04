@@ -20,7 +20,6 @@ import { SharedModule } from './shared/shared.module';
 const config = {
   apiKey: environment.apiKey,
   authDomain: environment.authDomain,
-  // databaseURL: environment.databaseURL ? environment.databaseURL : '',
   projectId: environment.projectId,
   storageBucket: environment.storageBucket,
   messagingSenderId: environment.messagingSenderId,
