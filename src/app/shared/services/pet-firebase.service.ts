@@ -33,7 +33,7 @@ export class PetFirebaseService {
   }
 
   findOne(id: string) {
-    const document: AngularFirestoreDocument<IPet> = this.afs.doc(`pets/${id}`);
+    const document: AngularFirestoreDocument<IPet> = this.afs.doc(`${this.nameCollection}/${id}`);
     const document$: Observable<IPet> = document.valueChanges();
     return document$;
   }
