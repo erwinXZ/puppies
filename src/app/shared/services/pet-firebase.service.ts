@@ -7,11 +7,12 @@ import { IPet, Pet } from '../model/pet.model';
   providedIn: 'root'
 })
 export class PetFirebaseService {
+  nameCollection: string = 'pets';
   newCollection: AngularFirestoreCollection<IPet>;
   collectionList: Observable<Pet[]>;
 
   constructor(private afs: AngularFirestore) {
-    this.newCollection = this.afs.collection<Pet>('pets');
+    this.newCollection = this.afs.collection<Pet>(this.nameCollection);
     this.collectionList = this.newCollection.valueChanges();
   }
 
@@ -19,44 +20,44 @@ export class PetFirebaseService {
     const newId: string = this.afs.createId();
     data.id = newId;
     return this.afs
-      .collection('pets')
+      .collection(this.nameCollection)
       .doc(String(newId))
       .set(data);
   }
 
   update(data: IPet) {
     return this.afs
-      .collection('pets')
+      .collection(this.nameCollection)
       .doc(String(data.id))
       .update(data);
   }
 
   findOne(id: string) {
-    const document: AngularFirestoreDocument<IPet> = this.afs.doc('pets/' + id);
+    const document: AngularFirestoreDocument<IPet> = this.afs.doc(`pets/${id}`);
     const document$: Observable<IPet> = document.valueChanges();
     return document$;
   }
 
   findAll() {
-    const collection: AngularFirestoreCollection<any> = this.afs.collection('pets', ref => ref.orderBy('name', 'asc'));
+    const collection: AngularFirestoreCollection<any> = this.afs.collection(this.nameCollection, ref => ref.orderBy('name', 'asc'));
     const collection$: Observable<IPet[]> = collection.valueChanges();
     return collection$;
   }
 
   delete(id: string) {
     return this.afs
-      .collection('pets')
+      .collection(this.nameCollection)
       .doc(String(id))
       .delete();
   }
 
   findAllPaginate() {
-    return this.afs.collection('pets', ref => ref.limit(5).orderBy('name', 'asc')).snapshotChanges();
+    return this.afs.collection(this.nameCollection, ref => ref.limit(5).orderBy('name', 'asc')).snapshotChanges();
   }
 
   prevPage(firstInResponse, getPrevStartAt) {
     return this.afs
-      .collection('pets', ref =>
+      .collection(this.nameCollection, ref =>
         ref
           .limit(5)
           .orderBy('name', 'asc')
@@ -68,7 +69,7 @@ export class PetFirebaseService {
 
   nextPage(lastInResponse) {
     return this.afs
-      .collection('pets', ref =>
+      .collection(this.nameCollection, ref =>
         ref
           .limit(5)
           .orderBy('name', 'asc')
