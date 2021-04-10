@@ -32,11 +32,11 @@ export class PetFirebaseService {
       .update(data);
   }
 
-  findOne(id: string) {
-    const doc: AngularFirestoreDocument<IPet> = this.afs.doc(`${this.nameCollection}/${id}`);
-    const doc$: Observable<IPet> = doc.valueChanges();
-    return doc$;
-  }
+  // findOne(id: string) {
+  //   const doc: AngularFirestoreDocument<IPet> = this.afs.doc(`${this.nameCollection}/${id}`);
+  //   const doc$: Observable<IPet> = doc.valueChanges();
+  //   return doc$;
+  // }
 
   findAll() {
     const collection: AngularFirestoreCollection<any> = this.afs.collection(this.nameCollection, ref => ref.orderBy('name', 'asc'));
