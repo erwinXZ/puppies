@@ -33,9 +33,9 @@ export class PetFirebaseService {
   }
 
   findOne(id: string) {
-    const document: AngularFirestoreDocument<IPet> = this.afs.doc(`${this.nameCollection}/${id}`);
-    const document$: Observable<IPet> = document.valueChanges();
-    return document$;
+    const doc: AngularFirestoreDocument<IPet> = this.afs.doc(`${this.nameCollection}/${id}`);
+    const doc$: Observable<IPet> = doc.valueChanges();
+    return doc$;
   }
 
   findAll() {

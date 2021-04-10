@@ -58,38 +58,38 @@ export class AdoptionComponent implements OnInit, OnDestroy {
     //     console.log('this.pet', this.pet);
     //   })
     // );
-    this.eventSubscriber.add(
-      this.petFirebaseService.findAllPaginate().subscribe(
-        res => {
-          if (!res.length) {
-            console.warn('No Data Available');
-            return false;
-          }
+    // this.eventSubscriber.add(
+    //   this.petFirebaseService.findAllPaginate().subscribe(
+    //     res => {
+    //       if (!res.length) {
+    //         console.warn('No Data Available');
+    //         return false;
+    //       }
 
-          this.firstInResponse = res[0].payload.doc;
-          this.lastInResponse = res[res.length - 1].payload.doc;
-          this.previousFirstInResponse.push(this.firstInResponse);
+    //       this.firstInResponse = res[0].payload.doc;
+    //       this.lastInResponse = res[res.length - 1].payload.doc;
+    //       this.previousFirstInResponse.push(this.firstInResponse);
 
-          this.pets = [];
-          for (const item of res) {
-            this.pets.push(item.payload.doc.data());
-          }
+    //       this.pets = [];
+    //       for (const item of res) {
+    //         this.pets.push(item.payload.doc.data());
+    //       }
 
-          // Initialize values
-          this.paginationClickedCount = 0;
-          if (res.length < 5) {
-            this.disableNext = true;
-          } else {
-            this.disableNext = false;
-          }
-          this.disablePrev = false;
+    //       // Initialize values
+    //       this.paginationClickedCount = 0;
+    //       if (res.length < 5) {
+    //         this.disableNext = true;
+    //       } else {
+    //         this.disableNext = false;
+    //       }
+    //       this.disablePrev = false;
 
-          // Push first item to use for Previous action
-          console.log('pets', res);
-        },
-        res => { }
-      )
-    );
+    //       // Push first item to use for Previous action
+    //       console.log('pets', res);
+    //     },
+    //     res => { }
+    //   )
+    // );
   }
 
   ngOnDestroy() {
@@ -125,52 +125,52 @@ export class AdoptionComponent implements OnInit, OnDestroy {
   }
 
   prevPage() {
-    this.disablePrev = true;
-    this.petFirebaseService.prevPage(this.firstInResponse, this.getPrevStartAt()).subscribe(
-      res => {
-        this.firstInResponse = res.docs[0];
-        this.lastInResponse = res.docs[res.docs.length - 1];
-        this.previousFirstInResponse.push(this.firstInResponse);
+    // this.disablePrev = true;
+    // this.petFirebaseService.prevPage(this.firstInResponse, this.getPrevStartAt()).subscribe(
+    //   res => {
+    //     this.firstInResponse = res.docs[0];
+    //     this.lastInResponse = res.docs[res.docs.length - 1];
+    //     this.previousFirstInResponse.push(this.firstInResponse);
 
-        this.pets = [];
-        for (const item of res.docs) {
-          this.pets.push(item.data());
-        }
+    //     this.pets = [];
+    //     for (const item of res.docs) {
+    //       this.pets.push(item.data());
+    //     }
 
-        // Maintaing page no.
-        this.paginationClickedCount--;
+    //     // Maintaing page no.
+    //     this.paginationClickedCount--;
 
-        // Enable buttons again
-        this.disablePrev = false;
-        this.disableNext = false;
-      },
-      res => { }
-    );
+    //     // Enable buttons again
+    //     this.disablePrev = false;
+    //     this.disableNext = false;
+    //   },
+    //   res => { }
+    // );
   }
 
   nextPage() {
-    this.disableNext = true;
-    this.petFirebaseService.nextPage(this.lastInResponse).subscribe(
-      res => {
-        if (!res.length) {
-          this.disableNext = true;
-          return;
-        }
-        this.firstInResponse = res[0].payload.doc;
-        this.previousFirstInResponse.push(this.firstInResponse);
+    // this.disableNext = true;
+    // this.petFirebaseService.nextPage(this.lastInResponse).subscribe(
+    //   res => {
+    //     if (!res.length) {
+    //       this.disableNext = true;
+    //       return;
+    //     }
+    //     this.firstInResponse = res[0].payload.doc;
+    //     this.previousFirstInResponse.push(this.firstInResponse);
 
-        this.lastInResponse = res[res.length - 1].payload.doc;
-        this.pets = [];
-        for (const item of res) {
-          this.pets.push(item.payload.doc.data());
-        }
+    //     this.lastInResponse = res[res.length - 1].payload.doc;
+    //     this.pets = [];
+    //     for (const item of res) {
+    //       this.pets.push(item.payload.doc.data());
+    //     }
 
-        this.paginationClickedCount++;
+    //     this.paginationClickedCount++;
 
-        this.disableNext = false;
-      },
-      res => { }
-    );
+    //     this.disableNext = false;
+    //   },
+    //   res => { }
+    // );
   }
 
   getPrevStartAt() {
