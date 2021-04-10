@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
@@ -10,10 +10,19 @@ import { NavbarComponent } from './public/layouts/navbar/navbar.component';
 import { SharedModule } from './shared/shared.module';
 import { SvgIconsModule } from '@ngneat/svg-icon';
 import { svgIconMore, svgIconHome } from '../assets/svg/svg-icon.model';
-
+import { SplashComponent } from './public/splash/splash.component';
+import { FirstPageComponent } from './public/splash/first-page/first-page.component';
+import { SecondPageComponent } from './public/splash/second-page/second-page.component';
+import { ThirdPageComponent } from './public/splash/third-page/third-page.component';
 @NgModule({
   declarations: [
-    MainComponent, NavbarComponent, FooterComponent
+    MainComponent,
+    NavbarComponent,
+    FooterComponent,
+    SplashComponent,
+    FirstPageComponent,
+    SecondPageComponent,
+    ThirdPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -23,8 +32,9 @@ import { svgIconMore, svgIconHome } from '../assets/svg/svg-icon.model';
     RouterModule,
     HomeModule,
     AdoptionModule,
-    SvgIconsModule.forRoot({ icons: [svgIconMore, svgIconHome] })
+    SvgIconsModule.forRoot({ icons: [svgIconMore, svgIconHome] }),
   ],
-  bootstrap: [MainComponent]
+  bootstrap: [MainComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class AppModule { }
+export class AppModule {}

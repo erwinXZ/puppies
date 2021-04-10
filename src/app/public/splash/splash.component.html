@@ -1,0 +1,18 @@
+<div class="container-carousel">
+  <ngb-carousel #myCarousel="ngbCarousel">
+    <ng-template ngbSlide>
+      <div class="page">
+        <app-first-page (nextEvent)="goToNextPage()"></app-first-page>
+      </div>
+    </ng-template>
+    <ng-template ngbSlide>
+      <div class="page">
+        <app-second-page (previousEvent)="goToPreviousPage()" (nextEvent)="goToNextPage()"></app-second-page>
+      </div>
+    </ng-template>
+    <ng-template ngbSlide>
+      <div class="page">
+        <app-third-page (previousEvent)="goToPreviousPage()" (goToHomeEvent)="onGoToAdoption()"></app-third-page>
+      </div>
+    </ng-template>
+  </ngb-carousel>
