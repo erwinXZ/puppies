@@ -98,7 +98,6 @@ export class AdoptionComponent implements OnInit, OnDestroy {
 
   save() {
     const pet = this.createFromForm();
-    // pet.id = 'Qp7sjPvCf6AgN0wfLIEm';
     if (pet.id !== null) {
       this.petFirebaseService.update(pet);
     } else {
