@@ -1,0 +1,73 @@
+.pet-container {
+  height: 240px;
+  width: 160px;
+  background: #fdfdfd;
+  border: 1px solid rgba(205, 205, 205, 0.5);
+  box-sizing: border-box;
+  box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+}
+
+.container-body {
+  height: 120px;
+  width: 160px;
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 0.5rem 0.7rem;
+}
+
+.pet-image {
+  height: 120px;
+  width: 160px;
+  border-radius: 20px;
+}
+
+.pet-name {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 20px;
+  color: #073e61;
+  margin-bottom: -5px;
+}
+
+.pet-age {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 15px;
+  color: #073e61;
+}
+
+.pet-refuge {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 13px;
+  color: #073e61;
+  margin: 5px 0;
+}
+
+.button-detail {
+  height: 35px;
+  width: 100%;
+  left: 11px;
+  top: 203px;
+  border-radius: 5px;
+  padding: 10px;
+
+  background: #fdfdfd;
+  box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 12px;
+  line-height: 15px;
+
+  color: #28b0a2;
+}
