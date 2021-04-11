@@ -4,15 +4,15 @@
     </div>
 
     <div class="splash" *ngIf="isMobileResolution && isFirstTime">
-      <app-splash (goToHomeEvent)="updateIsFirstTime()"></app-splash>
+        <app-splash (goToHomeEvent)="updateIsFirstTime()"></app-splash>
     </div>
 
-    <div>
-        <div *ngIf="!isFirstTime"  class="home blue">
+    <div class="container-fluid">
+        <div *ngIf="!isFirstTime"  class="home">
             <router-outlet></router-outlet>
         </div>
-        <div *ngIf="!isMobileResolution" class="footer green">
+        <!-- <div *ngIf="!isMobileResolution" class="footer green">
             <app-footer></app-footer>
-        </div>
+        </div> -->
     </div>
 </div>
