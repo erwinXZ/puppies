@@ -1,12 +1,17 @@
 <div class="container">
-    <div *ngIf="isMobileResolution">
+    <div class="navBar" *ngIf="isMobileResolution && !isFirstTime">
         <app-navbar></app-navbar>
     </div>
+
+    <div class="splash" *ngIf="isMobileResolution && isFirstTime">
+      <app-splash (goToHomeEvent)="updateIsFirstTime()"></app-splash>
+    </div>
+
     <div>
-        <div>
+        <div *ngIf="!isFirstTime"  class="home">
             <router-outlet></router-outlet>
         </div>
-        <div *ngIf="!isMobileResolution">
+        <div *ngIf="!isMobileResolution" class="footer">
             <app-footer></app-footer>
         </div>
     </div>

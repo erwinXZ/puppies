@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -15,7 +15,12 @@ import { FooterComponent } from './public/layouts/footer/footer.component';
 import { MainComponent } from './public/layouts/main/main.component';
 import { NavbarComponent } from './public/layouts/navbar/navbar.component';
 import { SharedModule } from './shared/shared.module';
-
+import { SvgIconsModule } from '@ngneat/svg-icon';
+import { svgIconMore, svgIconHome } from '../assets/svg/svg-icon.model';
+import { SplashComponent } from './public/splash/splash.component';
+import { FirstPageComponent } from './public/splash/first-page/first-page.component';
+import { SecondPageComponent } from './public/splash/second-page/second-page.component';
+import { ThirdPageComponent } from './public/splash/third-page/third-page.component';
 
 const config = {
   apiKey: environment.apiKey,
@@ -28,7 +33,13 @@ const config = {
 
 @NgModule({
   declarations: [
-    MainComponent, NavbarComponent, FooterComponent
+    MainComponent,
+    NavbarComponent,
+    FooterComponent,
+    SplashComponent,
+    FirstPageComponent,
+    SecondPageComponent,
+    ThirdPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,6 +55,7 @@ const config = {
     AngularFireAuthModule,
     AngularFireStorageModule
   ],
-  bootstrap: [MainComponent]
+  bootstrap: [MainComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class AppModule { }
+export class AppModule {}
