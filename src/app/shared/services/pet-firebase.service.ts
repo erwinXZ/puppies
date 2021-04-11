@@ -32,6 +32,7 @@ export class PetFirebaseService {
       .update(data);
   }
 
+  // Error with Code Inspector on code below
   // findOne(id: string) {
   //   const doc: AngularFirestoreDocument<IPet> = this.afs.doc(`${this.nameCollection}/${id}`);
   //   const doc$: Observable<IPet> = doc.valueChanges();
