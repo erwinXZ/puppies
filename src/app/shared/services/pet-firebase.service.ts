@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
+import { PAGINATION_SCROLL_ELEMENTS } from '../constants/pagination.constants';
 import { IPet, Pet } from '../model/pet.model';
 
 @Injectable({
@@ -53,14 +54,14 @@ export class PetFirebaseService {
   }
 
   findAllPaginate() {
-    return this.afs.collection(this.nameCollection, ref => ref.limit(5).orderBy('name', 'asc')).snapshotChanges();
+    return this.afs.collection(this.nameCollection, ref => ref.limit(PAGINATION_SCROLL_ELEMENTS).orderBy('name', 'asc')).snapshotChanges();
   }
 
   prevPage(firstInResponse, getPrevStartAt) {
     return this.afs
       .collection(this.nameCollection, ref =>
         ref
-          .limit(5)
+          .limit(PAGINATION_SCROLL_ELEMENTS)
           .orderBy('name', 'asc')
           .startAt(getPrevStartAt)
           .endBefore(firstInResponse)
@@ -72,7 +73,7 @@ export class PetFirebaseService {
     return this.afs
       .collection(this.nameCollection, ref =>
         ref
-          .limit(5)
+          .limit(PAGINATION_SCROLL_ELEMENTS)
           .orderBy('name', 'asc')
           .startAfter(lastInResponse)
       )
