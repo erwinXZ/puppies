@@ -15,8 +15,6 @@ import { FooterComponent } from './public/layouts/footer/footer.component';
 import { MainComponent } from './public/layouts/main/main.component';
 import { NavbarComponent } from './public/layouts/navbar/navbar.component';
 import { SharedModule } from './shared/shared.module';
-import { SvgIconsModule } from '@ngneat/svg-icon';
-import { svgIconMore, svgIconHome } from '../assets/svg/svg-icon.model';
 import { SplashComponent } from './public/splash/splash.component';
 import { FirstPageComponent } from './public/splash/first-page/first-page.component';
 import { SecondPageComponent } from './public/splash/second-page/second-page.component';
@@ -58,4 +56,4 @@ const config = {
   bootstrap: [MainComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class AppModule {}
+export class AppModule { }
