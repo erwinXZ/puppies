@@ -1,0 +1,1 @@
+export const PAGINATION_SCROLL_ELEMENTS = 5;
