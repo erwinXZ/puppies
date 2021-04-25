@@ -1,0 +1,7 @@
+{
+  "projects": {
+    "default": "doggies-app-prod",
+    "prod": "doggies-app-prod",
+    "dev": "doggies-app-4e95b"
+  }
+}
