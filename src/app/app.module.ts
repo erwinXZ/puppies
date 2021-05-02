@@ -10,7 +10,6 @@ import { environment } from 'src/environments/environment';
 import { svgIconHome, svgIconMore } from '../assets/svg/svg-icon.model';
 import { AppRoutingModule } from './app-routing.module';
 import { AdoptionModule } from './public/adoption/adoption.module';
-import { HomeModule } from './public/home/home.module';
 import { FooterComponent } from './public/layouts/footer/footer.component';
 import { MainComponent } from './public/layouts/main/main.component';
 import { NavbarComponent } from './public/layouts/navbar/navbar.component';
@@ -45,7 +44,6 @@ const config = {
     AppRoutingModule,
     SharedModule,
     RouterModule,
-    HomeModule,
     AdoptionModule,
     SvgIconsModule.forRoot({ icons: [svgIconMore, svgIconHome] }),
     AngularFireModule.initializeApp(config),

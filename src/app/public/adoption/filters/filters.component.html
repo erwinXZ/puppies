@@ -1,0 +1,52 @@
+<div class="container m-1">
+  <div class="row">
+    <div class="col-3">
+      <div class="custom-select-wrapper" (click)="onClickSelect(specieFilter)" #specie>
+        <div class="custom-select d-flex justify-content-start">
+          <div class="custom-select__trigger">
+            <span *ngIf="specieSelected">{{ specieSelected.label }}</span>
+            <span *ngIf="!specieSelected">Especie</span>
+          </div>
+          <div class="custom-options">
+            <span class="custom-option" *ngFor="let specieOption of specieOptions; let lastItem = last;"
+              (click)="onClickOption(specieFilter, specieOption, $event)"
+              [ngClass]="{'selected': specieSelected && specieOption.value == specieSelected.value, 'line': !lastItem}">{{ specieOption.label }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="custom-select-wrapper" (click)="onClickSelect(genreFilter)" #genre>
+        <div class="custom-select d-flex justify-content-start">
+          <div class="custom-select__trigger">
+            <span *ngIf="genreSelected">{{ genreSelected.label }}</span>
+            <span *ngIf="!genreSelected">Género</span>
+          </div>
+          <div class="custom-options">
+            <span class="custom-option" *ngFor="let genreOption of genreOptions; let lastItem = last;"
+              (click)="onClickOption(genreFilter, genreOption, $event)"
+              [ngClass]="{'selected': genreSelected && genreOption.value == genreSelected.value, 'line': !lastItem}">{{ genreOption.label }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="custom-select-wrapper" (click)="onClickSelect(ageFilter)" #age>
+        <div class="custom-select d-flex justify-content-start">
+          <div class="custom-select__trigger">
+            <span *ngIf="ageSelected">{{ ageSelected.label }}</span>
+            <span *ngIf="!ageSelected">Edad</span>
+          </div>
+          <div class="custom-options">
+            <span class="custom-option" *ngFor="let ageOption of ageOptions; let lastItem = last;"
+              (click)="onClickOption(ageFilter, ageOption, $event)"
+              [ngClass]="{'selected': ageSelected && ageOption.value == ageSelected.value, 'line': !lastItem}">{{ ageOption.label }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-3 d-flex justify-content-end">
+      <button type="button" class="button-clean" (click)="clean()">Limpiar</button>
+    </div>
+  </div>
+</div>
