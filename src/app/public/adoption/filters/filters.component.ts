@@ -109,7 +109,7 @@ export class FiltersComponent implements OnInit {
         }
         break;
       }
-      default: return; break;
+      default: return;
     }
 
   }
@@ -121,7 +121,7 @@ export class FiltersComponent implements OnInit {
       case this.specieFilter: this.specieSelected = value; break;
       case this.genreFilter: this.genreSelected = value; break;
       case this.ageFilter: this.ageSelected = value; break;
-      default: return; break;
+      default: return;
     }
 
     this.closeAllOptions();
