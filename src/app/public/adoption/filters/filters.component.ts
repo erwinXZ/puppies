@@ -78,42 +78,50 @@ export class FiltersComponent implements OnInit {
   }
 
   onClickSelect(filter: string) {
-    if (filter == this.specieFilter) {
-      if (this.getSpecieChildElement.contains('open')) {
-        this.getSpecieChildElement.remove('open')
-      } else {
-        this.getSpecieChildElement.toggle('open');
-        this.getGenreChildElement.remove('open')
-        this.getAgeChildElement.remove('open')
+    switch (filter) {
+      case this.specieFilter: {
+        if (this.getSpecieChildElement.contains('open')) {
+          this.getSpecieChildElement.remove('open')
+        } else {
+          this.getSpecieChildElement.toggle('open');
+          this.getGenreChildElement.remove('open')
+          this.getAgeChildElement.remove('open')
+        }
+        break;
       }
-    } else if (filter == this.genreFilter) {
-      if (this.getGenreChildElement.contains('open')) {
-        this.getGenreChildElement.remove('open')
-      } else {
-        this.getGenreChildElement.toggle('open');
-        this.getSpecieChildElement.remove('open')
-        this.getAgeChildElement.remove('open')
+      case this.genreFilter: {
+        if (this.getGenreChildElement.contains('open')) {
+          this.getGenreChildElement.remove('open')
+        } else {
+          this.getGenreChildElement.toggle('open');
+          this.getSpecieChildElement.remove('open')
+          this.getAgeChildElement.remove('open')
+        }
+        break;
       }
-    } else if (filter == this.ageFilter) {
-      if (this.getAgeChildElement.contains('open')) {
-        this.getAgeChildElement.remove('open')
-      } else {
-        this.getAgeChildElement.toggle('open');
-        this.getGenreChildElement.remove('open')
-        this.getSpecieChildElement.remove('open')
+      case this.ageFilter: {
+        if (this.getAgeChildElement.contains('open')) {
+          this.getAgeChildElement.remove('open')
+        } else {
+          this.getAgeChildElement.toggle('open');
+          this.getGenreChildElement.remove('open')
+          this.getSpecieChildElement.remove('open')
+        }
+        break;
       }
+      default: return;
     }
+
   }
 
   onClickOption(filter: string, value: any, event) {
     event.preventDefault();
     event.stopPropagation();
-    if (filter == this.specieFilter) {
-      this.specieSelected = value;
-    } else if (filter == this.genreFilter) {
-      this.genreSelected = value;
-    } else if (filter == this.ageFilter) {
-      this.ageSelected = value;
+    switch (filter) {
+      case this.specieFilter: this.specieSelected = value; break;
+      case this.genreFilter: this.genreSelected = value; break;
+      case this.ageFilter: this.ageSelected = value; break;
+      default: return;
     }
 
     this.closeAllOptions();
