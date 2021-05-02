@@ -108,12 +108,11 @@ export class FiltersComponent implements OnInit {
   onClickOption(filter: string, value: any, event) {
     event.preventDefault();
     event.stopPropagation();
-    if (filter == this.specieFilter) {
-      this.specieSelected = value;
-    } else if (filter == this.genreFilter) {
-      this.genreSelected = value;
-    } else if (filter == this.ageFilter) {
-      this.ageSelected = value;
+    switch (filter) {
+      case this.specieFilter: this.specieSelected = value; break;
+      case this.genreFilter: this.genreSelected = value; break;
+      case this.ageFilter: this.ageSelected = value; break;
+      default: return;
     }
 
     this.closeAllOptions();
