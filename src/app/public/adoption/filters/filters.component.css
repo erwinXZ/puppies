@@ -1,0 +1,118 @@
+.button-clean {
+  width: 70px;
+  height: 50px;
+
+  background: #b6b6b6;
+  border: 1px solid #969696;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+
+  color: #161616;
+}
+
+.custom-select-wrapper {
+  position: relative;
+  user-select: none;
+  width: 100%;
+}
+
+.custom-select {
+  width: 85px;
+  height: 50px;
+
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+
+  color: #1f1f1f;
+
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  background: #f0f0f0 url("/assets/svg/select-arrow.svg") no-repeat;
+
+  position: relative;
+  background-position: right -5px top 60%;
+
+  padding-left: 5px;
+}
+
+.custom-select__trigger {
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.custom-options {
+  position: absolute;
+  display: block;
+  width: 150px;
+  top: 103%;
+  left: 0;
+  right: 0;
+
+  border-radius: 5px;
+  border-top: 0;
+  background: #f0f0f0;
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.3);
+
+  transition: all 0.5s;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.custom-select.open .custom-options {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+}
+
+.custom-option {
+  position: relative;
+  display: block;
+  padding: 17px 15px 17px 15px;
+
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+
+  color: #161616;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.line::before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  right: 5px;
+  bottom: 0;
+  border-bottom: 2px solid rgba(196, 196, 196, 0.75);
+}
+
+.custom-option:hover {
+  cursor: pointer;
+  background-color: #b2b2b2;
+}
+
+.custom-option.selected {
+  color: #ffffff;
+  background-color: #b6b6b6;
+  border-radius: 5px;
+}
