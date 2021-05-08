@@ -13,7 +13,7 @@
     <p class="pet-refuge truncate">{{ pet.refugeName }}</p>
     <button type="button" class="btn button-detail">Detalles</button>
   </div>
-  <div class="urgent-warning">
+  <div *ngIf="pet.status == 'URGENT'" class="urgent-warning">
     <p class="urgent-text">URGENTE</p>
   </div>
 </div>

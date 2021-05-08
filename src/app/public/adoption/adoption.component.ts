@@ -13,7 +13,11 @@ export class AdoptionComponent implements OnInit, OnDestroy {
 
   eventSubscriber: Subscription = new Subscription();
   pets: IPet[];
-  pet: IPet;
+  results: number = 0;
+
+  specieFilter: string;
+  genreFilter: string;
+  ageFilter: string;
 
   constructor(
     protected petFirebaseService: PetFirebaseService
@@ -25,9 +29,9 @@ export class AdoptionComponent implements OnInit, OnDestroy {
 
   loadAll() {
     this.eventSubscriber.add(
-      this.petFirebaseService.findAll().subscribe(res => {
+      this.petFirebaseService.findAllByFilters({ specie: this.specieFilter, genre: this.genreFilter, age: this.ageFilter }).subscribe(res => {
         this.pets = res;
-        console.log('this.pets', this.pets);
+        this.results = this.pets.length;
       })
     );
   }
@@ -36,4 +40,25 @@ export class AdoptionComponent implements OnInit, OnDestroy {
     this.eventSubscriber.unsubscribe();
   }
 
+  setSpecieFilter(specie: string) {
+    this.specieFilter = specie;
+    this.loadAll();
+  }
+
+  setGenreFilter(genre: string) {
+    this.genreFilter = genre;
+    this.loadAll();
+  }
+
+  setAgeFilter(age: string) {
+    this.ageFilter = age;
+    this.loadAll();
+  }
+
+  cleanFilters() {
+    this.specieFilter = undefined;
+    this.genreFilter = undefined;
+    this.ageFilter = undefined;
+    this.loadAll();
+  }
 }
