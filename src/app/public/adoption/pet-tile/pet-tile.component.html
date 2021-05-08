@@ -1,11 +1,19 @@
 <div class="pet-container card">
-  <img class="pet-image card-img-top" src="/assets/img/img-test.jpg"><img>
+  <div class="image-container">
+    <img *ngIf="!pet.imagePath" class="default-pet-image card-img-top" src="/assets/img/pet-tile-background.jpg"
+      onerror="/assets/img/pet-tile-background.jpg" alt="Dog generic image"><img>
+    <img *ngIf="pet.imagePath" class="pet-image card-img-top" [src]="pet.imagePath"
+      onerror="/assets/img/pet-tile-background.jpg" alt="Dog generic image"><img>
+  </div>
+
   <div class="container-body">
-    <h5 class="pet-name">POCHO</h5>
-    <span class="pet-age">4 meses</span>
+    <h5 class="pet-name truncate">{{ pet.name }}</h5>
+    <span class="pet-age">{{ petAge }}</span>
     <br />
-    <p class="pet-refuge">Albergue San Roque</p>
+    <p class="pet-refuge truncate">{{ pet.refugeName }}</p>
     <button type="button" class="btn button-detail">Detalles</button>
   </div>
-  <div class="urgent-warning"><p class="urgent-text">URGENTE</p></div>
+  <div class="urgent-warning">
+    <p class="urgent-text">URGENTE</p>
+  </div>
 </div>

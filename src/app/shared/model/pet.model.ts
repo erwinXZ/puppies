@@ -1,4 +1,5 @@
 import { Moment } from 'moment';
+import { IRefuge } from './refuge.model';
 
 export interface IPet {
   id?: string;
@@ -16,6 +17,7 @@ export interface IPet {
   vaccinated?: string;
   weight?: string;
   whatsappLink?: string;
+  refugeName?: string;
   createdDate?: Moment;
 }
 
