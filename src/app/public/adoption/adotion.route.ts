@@ -4,6 +4,6 @@ import { AdoptionComponent } from './adoption.component';
 const routes: Routes = [];
 
 export const ADOPTION_ROUTE: Route = {
-	path: 'adoption',
+	path: '',
 	component: AdoptionComponent
 };

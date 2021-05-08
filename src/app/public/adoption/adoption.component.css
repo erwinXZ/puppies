@@ -1,0 +1,21 @@
+.title {
+  top: 10.47%;
+  bottom: 95.74%;
+
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 29px;
+  text-align: center;
+
+  color: #000000;
+}
+
+.results {
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 13px;
+  text-align: left;
+  margin-left: 20px;
+
+  color: #000000;
+}
