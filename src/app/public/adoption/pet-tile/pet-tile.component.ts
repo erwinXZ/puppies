@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { IPet } from 'src/app/shared/model/pet.model';
+import { DATE_FORMAT } from 'src/app/shared/constants/date-format.constants';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-pet-tile',
@@ -9,10 +11,26 @@ import { IPet } from 'src/app/shared/model/pet.model';
 export class PetTileComponent implements OnInit {
 
   @Input() pet: IPet;
+  petAge: string;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.setPetAge();
+  }
+
+  setPetAge() {
+    const birthday = moment(this.pet.birthday.toDate(), DATE_FORMAT);
+    const currentDate: moment.Moment = moment();
+
+    const yearsDifference = currentDate.diff(birthday, 'year');
+    const monthsDifference = currentDate.diff(birthday, 'months');
+
+    if (yearsDifference < 1) {
+      this.petAge = monthsDifference == 1 ? '1 mes' : monthsDifference + ' meses';
+    } else {
+      this.petAge = yearsDifference == 1 ? '1 año' : yearsDifference + ' años';
+    }
   }
 
 }

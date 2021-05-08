@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument, Query } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { PAGINATION_SCROLL_ELEMENTS } from '../constants/pagination.constants';
 import { IPet, Pet } from '../model/pet.model';
+import * as moment from 'moment';
+import { DATE_FORMAT } from '../constants/date-format.constants';
 
 @Injectable({
   providedIn: 'root'
@@ -46,6 +48,12 @@ export class PetFirebaseService {
     return collection$;
   }
 
+  findAllByFilters(filters: any) {
+    const collection: AngularFirestoreCollection<any> = this.afs.collection(this.nameCollection, ref => this.setQuery(ref, filters));
+    const collection$: Observable<IPet[]> = collection.valueChanges();
+    return collection$;
+  }
+
   delete(id: string) {
     return this.afs
       .collection(this.nameCollection)
@@ -78,6 +86,24 @@ export class PetFirebaseService {
           .startAfter(lastInResponse)
       )
       .snapshotChanges();
+  }
+
+  setQuery(ref: Query, filters: any) {
+    let query: Query = ref;
+    query.orderBy('name', 'asc');
+    if (filters.specie) {
+      query = query.where('specie', '==', filters.specie);
+    }
+    if (filters.genre) {
+      query = query.where('genre', '==', filters.genre);
+    }
+    if (filters.age) {
+      const filterStartDate = moment().subtract((+filters.age) + 1, 'years').toDate();
+      const filterEndDate = moment().subtract(+filters.age, 'years').toDate();
+
+      query = query.where('birthday', '>', filterStartDate).where('birthday', '<=', filterEndDate);
+    }
+    return query;
   }
 }
 

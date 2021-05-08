@@ -1,4 +1,5 @@
 import { Moment } from 'moment';
+import { Genre, Specie, Status } from '../constants/enum.constants';
 
 export interface IPet {
   id?: string;
@@ -7,15 +8,16 @@ export interface IPet {
   cellphone: string;
   description?: string;
   enteredDate?: Moment;
-  genre: string;
+  genre: Genre;
   image?: string;
   imagePath?: string;
   name: string;
   status: Status;
-  type: Type;
+  specie: Specie;
   vaccinated?: string;
   weight?: string;
   whatsappLink?: string;
+  refugeName?: string;
   createdDate?: Moment;
 }
 
@@ -27,26 +29,15 @@ export class Pet implements IPet {
     public cellphone: string = '',
     public description?: string,
     public enteredDate?: Moment,
-    public genre: string = '',
+    public genre: Genre | null = null,
     public image?: string,
     public imagePath?: string,
     public name: string = '',
     public status: Status = Status.Adoption,
-    public type: Type = Type.Dog,
+    public specie: Specie = Specie.Dog,
     public vaccinated?: string,
     public weight?: string,
     public whatsappLink?: string,
     public createdDate?: Moment
   ) { }
-}
-
-enum Type {
-  Dog = 'DOG',
-  Cat = 'CAT'
-}
-
-enum Status {
-  Adoption = 'ADOPTION',
-  Urgent = 'URGENT',
-  Adopted = 'ADOPTED'
 }
