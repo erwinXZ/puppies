@@ -10,6 +10,7 @@ import { environment } from 'src/environments/environment';
 import { svgIconHome, svgIconMore } from '../assets/svg/svg-icon.model';
 import { AppRoutingModule } from './app-routing.module';
 import { AdoptionModule } from './public/adoption/adoption.module';
+import { AssociationModule } from './public/association/association.module';
 import { HomeModule } from './public/home/home.module';
 import { FooterComponent } from './public/layouts/footer/footer.component';
 import { MainComponent } from './public/layouts/main/main.component';
@@ -27,7 +28,7 @@ const config = {
   storageBucket: environment.storageBucket,
   messagingSenderId: environment.messagingSenderId,
   appId: environment.appId
-}
+};
 
 @NgModule({
   declarations: [
@@ -37,7 +38,7 @@ const config = {
     SplashComponent,
     FirstPageComponent,
     SecondPageComponent,
-    ThirdPageComponent,
+    ThirdPageComponent
   ],
   imports: [
     BrowserModule,
@@ -47,6 +48,7 @@ const config = {
     RouterModule,
     HomeModule,
     AdoptionModule,
+    AssociationModule,
     SvgIconsModule.forRoot({ icons: [svgIconMore, svgIconHome] }),
     AngularFireModule.initializeApp(config),
     AngularFirestoreModule,
@@ -54,6 +56,6 @@ const config = {
     AngularFireStorageModule
   ],
   bootstrap: [MainComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class AppModule { }
+export class AppModule {}
