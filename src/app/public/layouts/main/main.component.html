@@ -1,10 +1,10 @@
 <div class="container">
-    <div class="navBar" *ngIf="isMobileResolution && !isFirstTime">
+    <div *ngIf="isMobileResolution && !isFirstTime">
         <app-navbar></app-navbar>
     </div>
 
     <div class="splash" *ngIf="isMobileResolution && isFirstTime">
-      <app-splash (goToHomeEvent)="updateIsFirstTime()"></app-splash>
+        <app-splash (goToHomeEvent)="updateIsFirstTime()"></app-splash>
     </div>
 
     <div>

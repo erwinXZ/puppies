@@ -13,6 +13,7 @@ img {
 
 .title {
   margin-top: 14px;
+  margin-left: 14px;
 
   font-family: Montserrat;
   font-style: normal;
@@ -37,5 +38,9 @@ img {
 }
 
 .button-show {
+  padding: 0px !important;
+}
+
+.title-section {
   padding: 0px !important;
 }
