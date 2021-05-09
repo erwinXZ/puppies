@@ -7,7 +7,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { SvgIconsModule } from '@ngneat/svg-icon';
 import { environment } from 'src/environments/environment';
-import { svgIconHome, svgIconMore } from '../assets/svg/svg-icon.model';
+import { svgIconMore } from '../assets/svg/svg-icon.model';
 import { AppRoutingModule } from './app-routing.module';
 import { AdoptionModule } from './public/adoption/adoption.module';
 import { FooterComponent } from './public/layouts/footer/footer.component';
@@ -18,6 +18,7 @@ import { SplashComponent } from './public/splash/splash.component';
 import { FirstPageComponent } from './public/splash/first-page/first-page.component';
 import { SecondPageComponent } from './public/splash/second-page/second-page.component';
 import { ThirdPageComponent } from './public/splash/third-page/third-page.component';
+import { CustomSvgComponent } from './shared/components/custom-svg/custom-svg.component';
 
 const config = {
   apiKey: environment.apiKey,
@@ -37,15 +38,15 @@ const config = {
     FirstPageComponent,
     SecondPageComponent,
     ThirdPageComponent,
+    CustomSvgComponent
   ],
   imports: [
     BrowserModule,
-    SharedModule,
     AppRoutingModule,
     SharedModule,
     RouterModule,
     AdoptionModule,
-    SvgIconsModule.forRoot({ icons: [svgIconMore, svgIconHome] }),
+    SvgIconsModule.forRoot({ icons: [svgIconMore] }),
     AngularFireModule.initializeApp(config),
     AngularFirestoreModule,
     AngularFireAuthModule,
