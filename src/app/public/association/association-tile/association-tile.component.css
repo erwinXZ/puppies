@@ -1,0 +1,41 @@
+.tile {
+  padding: 2%;
+  background: #fefefe;
+  box-shadow: 0px 5px 7px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+img {
+  width: 80px;
+  height: 80px;
+  padding: 2%;
+}
+
+.title {
+  margin-top: 14px;
+
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+}
+
+.show-more {
+  position: absolute;
+  bottom: -10px;
+  right: 0px;
+  margin: 0px 15px 15px 0px !important;
+
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 14px;
+  text-align: center;
+  color: #28b0a2;
+}
+
+.button-show {
+  padding: 0px !important;
+}
