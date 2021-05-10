@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { PAGINATION_SCROLL_ELEMENTS } from '../constants/pagination.constants';
 import { IPet, Pet } from '../model/pet.model';
 import * as moment from 'moment';
-import { DATE_FORMAT, YEAR_VALUE } from '../constants/date-format.constants';
+import { YEAR_DEFAULT_VALUE } from '../constants/date-format.constants';
 
 @Injectable({
   providedIn: 'root'
@@ -98,7 +98,7 @@ export class PetFirebaseService {
       query = query.where('genre', '==', filters.genre);
     }
     if (filters.age) {
-      const filterStartDate = moment().subtract((+filters.age) + YEAR_VALUE, 'years').toDate();
+      const filterStartDate = moment().subtract((+filters.age) + YEAR_DEFAULT_VALUE, 'years').toDate();
       const filterEndDate = moment().subtract(+filters.age, 'years').toDate();
 
       query = query.where('birthday', '>', filterStartDate).where('birthday', '<=', filterEndDate);
