@@ -34,8 +34,8 @@ export class NavbarComponent implements OnInit {
   }
 
   onNavBarItemClick(indexNavBar: number) {
-    this.navBarItems.map((navBarItem, i) => {
-      navBarItem.selected = indexNavBar == i;
+    this.navBarItems.map((navBarItem, index) => {
+      navBarItem.selected = indexNavBar == index;
     });
   }
 
