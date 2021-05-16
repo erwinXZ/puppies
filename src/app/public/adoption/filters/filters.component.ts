@@ -1,4 +1,5 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import { Specie } from 'src/app/shared/constants/enum.constants';
 import { AGE, GENRE, SPECIE } from 'src/app/shared/constants/filter.contants';
 import { IPetFilter } from 'src/app/shared/model/pet-filter.model';
 
@@ -13,18 +14,27 @@ import { IPetFilter } from 'src/app/shared/model/pet-filter.model';
 
 export class FiltersComponent implements OnInit {
 
+  @ViewChild(SPECIE) specieElement: ElementRef;
+  @ViewChild(GENRE) genreElement: ElementRef;
+  @ViewChild(AGE) ageElement: ElementRef;
+
+  @Output() onSpecieSelected = new EventEmitter<string>();
+  @Output() onGenreSelected = new EventEmitter<string>();
+  @Output() onAgeSelected = new EventEmitter<string>();
+  @Output() onCleanSelected = new EventEmitter();
+
   specieFilter: string = SPECIE;
   genreFilter: string = GENRE;
   ageFilter: string = AGE;
 
   specieOptions: Array<IPetFilter> = [
-    { value: 'dog', label: 'Perros' },
-    { value: 'cat', label: 'Gatos' }
+    { value: Specie.Dog, label: 'Perros' },
+    { value: Specie.Cat, label: 'Gatos' }
   ];
 
   genreOptions: Array<IPetFilter> = [
-    { value: 'female', label: 'Hembra' },
-    { value: 'male', label: 'Macho' }
+    { value: 'F', label: 'Hembra' },
+    { value: 'M', label: 'Macho' }
   ];
 
   ageOptions: Array<IPetFilter> = [
@@ -40,10 +50,6 @@ export class FiltersComponent implements OnInit {
   specieSelected: IPetFilter;
   genreSelected: IPetFilter;
   ageSelected: IPetFilter;
-
-  @ViewChild(SPECIE) specieElement: ElementRef;
-  @ViewChild(GENRE) genreElement: ElementRef;
-  @ViewChild(AGE) ageElement: ElementRef;
 
   constructor() { }
 
@@ -118,9 +124,9 @@ export class FiltersComponent implements OnInit {
     event.preventDefault();
     event.stopPropagation();
     switch (filter) {
-      case this.specieFilter: this.specieSelected = value; break;
-      case this.genreFilter: this.genreSelected = value; break;
-      case this.ageFilter: this.ageSelected = value; break;
+      case this.specieFilter: this.specieSelected = value; this.onSpecieSelected.emit(this.specieSelected.value.toString()); break;
+      case this.genreFilter: this.genreSelected = value; this.onGenreSelected.emit(this.genreSelected.value.toString()); break;
+      case this.ageFilter: this.ageSelected = value; this.onAgeSelected.emit(this.ageSelected.value.toString()); break;
       default: return;
     }
 
@@ -131,6 +137,7 @@ export class FiltersComponent implements OnInit {
     this.specieSelected = null;
     this.genreSelected = null;
     this.ageSelected = null;
+    this.onCleanSelected.emit();
   }
 
   get getSpecieChildElement() {

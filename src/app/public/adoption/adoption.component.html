@@ -1,35 +1,12 @@
 <div class="section">
   <h1 class="title m-1 mb-2">ANIMALES EN ADOPCIÓN</h1>
-  <app-filters></app-filters>
-  <p class="results mt-3 mb-2">32 resultados encontrados</p>
+  <app-filters (onSpecieSelected)="setSpecieFilter($event)" (onGenreSelected)="setGenreFilter($event)" (onAgeSelected)="setAgeFilter($event)" (onCleanSelected)="cleanFilters()"></app-filters>
+  <p class="results mt-3 mb-2">{{ results }} resultados encontrados</p>
   <div class="container">
     <div class="row">
-      <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-2 my-2">
-        <app-pet-tile></app-pet-tile>
-      </div>
-      <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-2 my-2">
-        <app-pet-tile></app-pet-tile>
-      </div>
-      <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-2 my-2">
-        <app-pet-tile></app-pet-tile>
-      </div>
-      <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-2 my-2">
-        <app-pet-tile></app-pet-tile>
-      </div>
-      <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-2 my-2">
-        <app-pet-tile></app-pet-tile>
-      </div>
-      <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-2 my-2">
-        <app-pet-tile></app-pet-tile>
-      </div>
-      <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-2 my-2">
-        <app-pet-tile></app-pet-tile>
-      </div>
-      <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-2 my-2">
-        <app-pet-tile></app-pet-tile>
+      <div *ngFor="let pet of pets" class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-2 my-2">
+        <app-pet-tile [pet]="pet"></app-pet-tile>
       </div>
     </div>
-    
   </div>
-  
 </div>

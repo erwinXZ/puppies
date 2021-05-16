@@ -6,7 +6,7 @@
   border-radius: 10px;
 }
 
-.img-style {
+.img-container {
   width: 80px;
   height: 80px;
 }
@@ -19,7 +19,7 @@ img {
 
 .title {
   margin-top: 14px;
-  margin-left: 14px;
+  margin-left: 20px;
 
   font-family: Montserrat;
   font-style: normal;
@@ -29,7 +29,7 @@ img {
   text-align: center;
 }
 
-.title-style {
+.title-container {
   padding: 0px !important;
 }
 
@@ -43,12 +43,12 @@ img {
   color: #28b0a2;
 }
 
-.button-show {
+.link-show {
   padding: 0px !important;
 }
 
-.button-style {
+.link-container {
   position: absolute;
-  bottom: 0px;
-  right: 17px;
+  bottom: 6px;
+  right: 22px;
 }
