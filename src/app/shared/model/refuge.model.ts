@@ -1,4 +1,4 @@
-import { Moment } from "moment";
+import { Moment } from 'moment';
 
 export interface IRefuge {
   id?: string;
@@ -7,8 +7,8 @@ export interface IRefuge {
   cellphone?: string;
   description?: string;
   facebookUrl?: string;
-  image?: string;
-  imagePath?: string;
+  images?: string[];
+  logoPath?: string;
   isActive?: boolean;
   name?: string;
   order?: number;
@@ -25,13 +25,13 @@ export class Refuge implements IRefuge {
     public cellphone?: string,
     public description?: string,
     public facebookUrl?: string,
-    public image?: string,
-    public imagePath?: string,
+    public images?: string[],
+    public logoPath?: string,
     public isActive?: boolean,
     public name?: string,
     public order?: number,
     public urgentQuantity?: number,
     public whatsappLink?: string,
     public createdDate?: Moment
-  ) { }
+  ) {}
 }
