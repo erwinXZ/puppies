@@ -1,13 +1,30 @@
 import { Component, OnInit } from '@angular/core';
-import { fadeAnimation } from './fade.animation';
+import { NavBarKey } from 'src/app/shared/constants/enum.constants';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css'],
-  animations: [fadeAnimation]
+  styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+
+  navBarItems = [
+    {
+      key: NavBarKey.Pet,
+      route: '',
+      selected: true
+    },
+    {
+      key: NavBarKey.Association,
+      route: 'association',
+      selected: false
+    },
+    {
+      key: NavBarKey.Form,
+      route: 'admin',
+      selected: false
+    }
+  ];
 
   constructor() {
 
@@ -16,8 +33,10 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public getRouterOutletState(outlet) {
-    return outlet.isActivated ? outlet.activatedRoute : '';
+  onNavBarItemClick(indexNavBar: number) {
+    this.navBarItems.map((navBarItem, index) => {
+      navBarItem.selected = indexNavBar == index;
+    });
   }
 
 }

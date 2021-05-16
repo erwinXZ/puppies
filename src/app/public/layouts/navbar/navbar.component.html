@@ -1,11 +1,9 @@
-<div class="custom-navbar d-flex align-items-center justify-content-around">
-  <div>
-    <svg-icon key="home" size="xl" [routerLink]="['/']"></svg-icon>
-  </div>
-  <div>
-    <svg-icon key="home" size="xl" [routerLink]="['/adoption']"></svg-icon>
-  </div>
-  <div>
-    <svg-icon key="more" size="xl" [routerLink]="['/admin']"></svg-icon>
-  </div>
+<div class="custom-navbar">
+  <ul class="d-flex align-items-center justify-content-around">
+    <li *ngFor="let navBarItem of navBarItems; index as i" class="nav-bar-item" [routerLink]="['/' + navBarItem.route]" (click)="onNavBarItemClick(i)">
+      <div *ngIf="navBarItem.selected" class="ellipse"></div>
+      <app-custom-svg [key]="navBarItem.key"></app-custom-svg>
+    </li>
+  </ul>
 </div>
+
