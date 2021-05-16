@@ -2,8 +2,11 @@
   <h3 class="title">PROTECTORAS</h3>
   <div class="container">
     <div class="row">
-      <div *ngFor="let refuge of refuges">
-        <app-association-tile [refuge]="refuge"></app-association-tile>
+      <div class="list-container" *ngFor="let refuge of refuges">
+        <app-association-tile
+          style="width: 100%;"
+          [refuge]="refuge"
+        ></app-association-tile>
       </div>
     </div>
   </div>
