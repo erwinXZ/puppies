@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { BooleanTranslatePipe } from './util/boolean-translate';
+import { CarouselComponent } from './components/carousel/carousel.component';
 import { SharedLibsModule } from './shared-libs.module';
+import { BooleanTranslatePipe } from './util/boolean-translate';
 
 
 
@@ -10,11 +10,13 @@ import { SharedLibsModule } from './shared-libs.module';
     SharedLibsModule
   ],
   declarations: [
-    BooleanTranslatePipe
+    BooleanTranslatePipe,
+    CarouselComponent
   ],
   exports: [
     SharedLibsModule,
-    BooleanTranslatePipe
+    BooleanTranslatePipe,
+    CarouselComponent
   ]
 })
 export class SharedModule { }
