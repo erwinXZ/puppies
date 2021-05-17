@@ -7,7 +7,6 @@ import { NavBarKey } from 'src/app/shared/constants/enum.constants';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-
   navBarItems = [
     {
       key: NavBarKey.Pet,
@@ -26,17 +25,13 @@ export class NavbarComponent implements OnInit {
     }
   ];
 
-  constructor() {
+  constructor() {}
 
-  }
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   onNavBarItemClick(indexNavBar: number) {
     this.navBarItems.map((navBarItem, index) => {
       navBarItem.selected = indexNavBar == index;
     });
   }
-
 }

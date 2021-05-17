@@ -10,6 +10,7 @@ import { environment } from 'src/environments/environment';
 import { svgIconMore } from '../assets/svg/svg-icon.model';
 import { AppRoutingModule } from './app-routing.module';
 import { AdoptionModule } from './public/adoption/adoption.module';
+import { AssociationModule } from './public/association/association.module';
 import { FooterComponent } from './public/layouts/footer/footer.component';
 import { MainComponent } from './public/layouts/main/main.component';
 import { NavbarComponent } from './public/layouts/navbar/navbar.component';
@@ -27,7 +28,7 @@ const config = {
   storageBucket: environment.storageBucket,
   messagingSenderId: environment.messagingSenderId,
   appId: environment.appId
-}
+};
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ const config = {
     SharedModule,
     RouterModule,
     AdoptionModule,
+    AssociationModule,
     SvgIconsModule.forRoot({ icons: [svgIconMore] }),
     AngularFireModule.initializeApp(config),
     AngularFirestoreModule,
@@ -53,6 +55,6 @@ const config = {
     AngularFireStorageModule
   ],
   bootstrap: [MainComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class AppModule { }
+export class AppModule {}
