@@ -13,3 +13,9 @@ export enum Status {
   Urgent = 'URGENT',
   Adopted = 'ADOPTED'
 }
+
+export enum NavBarKey {
+  Pet = 'pet-nav-bar',
+  Association = 'association-nav-bar',
+  Form = 'form-nav-bar'
+}

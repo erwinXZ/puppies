@@ -3,8 +3,6 @@ import { CarouselComponent } from './components/carousel/carousel.component';
 import { SharedLibsModule } from './shared-libs.module';
 import { BooleanTranslatePipe } from './util/boolean-translate';
 
-
-
 @NgModule({
   imports: [
     SharedLibsModule
@@ -20,3 +18,4 @@ import { BooleanTranslatePipe } from './util/boolean-translate';
   ]
 })
 export class SharedModule { }
+
