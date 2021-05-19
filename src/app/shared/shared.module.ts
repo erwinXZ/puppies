@@ -1,17 +1,20 @@
 import { NgModule } from '@angular/core';
-import { BooleanTranslatePipe } from './util/boolean-translate';
+import { CarouselComponent } from './components/carousel/carousel.component';
 import { SharedLibsModule } from './shared-libs.module';
+import { BooleanTranslatePipe } from './util/boolean-translate';
 
 @NgModule({
   imports: [
     SharedLibsModule
   ],
   declarations: [
-    BooleanTranslatePipe
+    BooleanTranslatePipe,
+    CarouselComponent
   ],
   exports: [
     SharedLibsModule,
-    BooleanTranslatePipe
+    BooleanTranslatePipe,
+    CarouselComponent
   ]
 })
 export class SharedModule { }

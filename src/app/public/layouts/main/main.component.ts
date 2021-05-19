@@ -28,7 +28,7 @@ export class MainComponent implements OnInit {
         : (this.isMobileResolution = false);
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   updateIsFirstTime() {
     this.isFirstTime = localStorage.getItem(SPLASH_KEY) == null;
