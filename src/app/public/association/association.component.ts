@@ -8,7 +8,7 @@ import { AssociationService } from './association.service';
   templateUrl: './association.component.html',
   styleUrls: ['./association.component.css']
 })
-export class AssociationComponent implements OnInit {
+export class AssociationComponent implements OnInit, OnDestroy {
   eventSubscriber: Subscription = new Subscription();
   refuges: IRefuge[];
 
