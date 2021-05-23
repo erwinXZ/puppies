@@ -6,7 +6,7 @@ import * as moment from 'moment';
 @Component({
   selector: 'app-pet-tile',
   templateUrl: './pet-tile.component.html',
-  styleUrls: ['./pet-tile.component.css']
+  styleUrls: ['./pet-tile.component.scss']
 })
 export class PetTileComponent implements OnInit {
 

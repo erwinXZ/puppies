@@ -3,15 +3,15 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 @Component({
   selector: 'app-second-page',
   templateUrl: './second-page.component.html',
-  styleUrls: ['./second-page.component.css'],
+  styleUrls: ['./second-page.component.scss'],
 })
 export class SecondPageComponent implements OnInit {
   @Output() nextEvent = new EventEmitter<any>();
   @Output() previousEvent = new EventEmitter<any>();
 
-  constructor() {}
+  constructor() { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   onClickNext() {
     this.nextEvent.next();

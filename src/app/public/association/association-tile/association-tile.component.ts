@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-association-tile',
   templateUrl: './association-tile.component.html',
-  styleUrls: ['./association-tile.component.css']
+  styleUrls: ['./association-tile.component.scss']
 })
 export class AssociationTileComponent implements OnInit {
 
