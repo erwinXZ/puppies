@@ -40,7 +40,7 @@ describe('ThirdPageComponent', () => {
   it('should output previousEvent event', fakeAsync(() => {
     spyOn(component.previousEvent, 'next');
 
-    let arrow = fixture.debugElement.query(By.css('.img-arrow')).nativeElement;
+    let arrow = fixture.debugElement.query(By.scss('.img-arrow')).nativeElement;
     arrow.click();
     tick();
 

@@ -6,7 +6,7 @@ import { AssociationService } from './association.service';
 @Component({
   selector: 'app-association',
   templateUrl: './association.component.html',
-  styleUrls: ['./association.component.css']
+  styleUrls: ['./association.component.scss']
 })
 export class AssociationComponent implements OnInit, OnDestroy {
   eventSubscriber: Subscription = new Subscription();

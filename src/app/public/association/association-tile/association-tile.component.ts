@@ -4,7 +4,7 @@ import { IRefuge } from 'src/app/shared/model/refuge.model';
 @Component({
   selector: 'app-association-tile',
   templateUrl: './association-tile.component.html',
-  styleUrls: ['./association-tile.component.css']
+  styleUrls: ['./association-tile.component.scss']
 })
 export class AssociationTileComponent implements OnInit {
   @Input() refuge: IRefuge;
