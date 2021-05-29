@@ -11,7 +11,7 @@
     <span class="pet-age">{{ petAge }}</span>
     <br />
     <p class="pet-refuge truncate">{{ pet.refugeName }}</p>
-    <button type="button" class="btn button-detail">Detalles</button>
+    <button type="button" class="btn button-detail" [routerLink]="['/', pet.id, 'view']">Detalles</button>
   </div>
   <div *ngIf="pet.status == 'URGENT'" class="urgent-warning">
     <p class="urgent-text">URGENTE</p>
