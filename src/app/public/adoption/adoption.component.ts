@@ -7,7 +7,7 @@ import { PetFirebaseService } from 'src/app/shared/services/pet-firebase.service
 @Component({
   selector: 'app-adoption',
   templateUrl: './adoption.component.html',
-  styleUrls: ['./adoption.component.css']
+  styleUrls: ['./adoption.component.scss']
 })
 export class AdoptionComponent implements OnInit, OnDestroy {
 

@@ -1,9 +1,15 @@
 <div class="custom-navbar">
-  <ul class="d-flex align-items-center justify-content-around">
-    <li *ngFor="let navBarItem of navBarItems; index as i" class="nav-bar-item" [routerLink]="['/' + navBarItem.route]" (click)="onNavBarItemClick(i)">
-      <div *ngIf="navBarItem.selected" class="ellipse"></div>
+  <ul class="d-flex justify-content-around">
+    <li
+      *ngFor="let navBarItem of navBarItems; index as i"
+      class="nav-bar-item"
+      [routerLink]="['/' + navBarItem.route]"
+      (click)="onNavBarItemClick(i)"
+    >
+      <div class="ellipse-container">
+        <div *ngIf="navBarItem.selected" class="ellipse"></div>
+      </div>
       <app-custom-svg [key]="navBarItem.key"></app-custom-svg>
     </li>
   </ul>
 </div>
-

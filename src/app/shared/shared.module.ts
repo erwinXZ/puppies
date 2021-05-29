@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
-import { BooleanTranslatePipe } from './util/boolean-translate';
+import { CarouselComponent } from './components/carousel/carousel.component';
 import { SharedLibsModule } from './shared-libs.module';
-import { CustomSvgComponent } from './components/custom-svg/custom-svg.component';
+import { BooleanTranslatePipe } from './util/boolean-translate';
 
 @NgModule({
   imports: [
@@ -9,10 +9,12 @@ import { CustomSvgComponent } from './components/custom-svg/custom-svg.component
   ],
   declarations: [
     BooleanTranslatePipe,
+    CarouselComponent
   ],
   exports: [
     SharedLibsModule,
-    BooleanTranslatePipe
+    BooleanTranslatePipe,
+    CarouselComponent
   ]
 })
 export class SharedModule { }

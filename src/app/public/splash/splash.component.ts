@@ -12,7 +12,7 @@ export const SPLASH_KEY = 'SplashKey';
 @Component({
   selector: 'app-splash',
   templateUrl: './splash.component.html',
-  styleUrls: ['./splash.component.css'],
+  styleUrls: ['./splash.component.scss'],
   providers: [NgbCarouselConfig],
 })
 export class SplashComponent implements OnInit {
@@ -28,7 +28,7 @@ export class SplashComponent implements OnInit {
     localStorage.setItem(SPLASH_KEY, 'true');
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   goToNextPage() {
     this.myCarousel.next();

@@ -31,7 +31,7 @@ describe('SecondPageComponent', () => {
   it('should output nextEvent event', fakeAsync(() => {
     spyOn(component.nextEvent, 'next');
 
-    let arrowRight = fixture.debugElement.query(By.css('.img-arrow-right'))
+    let arrowRight = fixture.debugElement.query(By.scss('.img-arrow-right'))
       .nativeElement;
     arrowRight.click();
     tick();
@@ -42,7 +42,7 @@ describe('SecondPageComponent', () => {
   it('should output previousEvent event', fakeAsync(() => {
     spyOn(component.previousEvent, 'next');
 
-    let arrowLeft = fixture.debugElement.query(By.css('.img-arrow-left'))
+    let arrowLeft = fixture.debugElement.query(By.scss('.img-arrow-left'))
       .nativeElement;
     arrowLeft.click();
     tick();

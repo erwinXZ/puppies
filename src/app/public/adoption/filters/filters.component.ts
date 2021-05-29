@@ -6,7 +6,7 @@ import { IPetFilter } from 'src/app/shared/model/pet-filter.model';
 @Component({
   selector: 'app-filters',
   templateUrl: './filters.component.html',
-  styleUrls: ['./filters.component.css'],
+  styleUrls: ['./filters.component.scss'],
   host: {
     '(document:click)': 'onClick($event)',
   }

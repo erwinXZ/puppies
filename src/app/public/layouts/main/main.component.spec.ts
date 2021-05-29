@@ -59,7 +59,7 @@ describe('MainComponent', () => {
     component.isFirstTime = localStorage.getItem(SPLASH_KEY) == null;
     fixture.detectChanges();
 
-    expect(element.query(By.css('.splash')).nativeElement).toBeTruthy();
+    expect(element.query(By.scss('.splash')).nativeElement).toBeTruthy();
   });
 
   it('given #isFirstTime is false and #isMobileResolution is true, then should show the correct view', () => {
@@ -70,8 +70,8 @@ describe('MainComponent', () => {
     component.isFirstTime = localStorage.getItem(SPLASH_KEY) == null;
     fixture.detectChanges();
 
-    expect(element.query(By.css('.navBar')).nativeElement).toBeTruthy();
-    expect(element.query(By.css('.home')).nativeElement).toBeTruthy();
+    expect(element.query(By.scss('.navBar')).nativeElement).toBeTruthy();
+    expect(element.query(By.scss('.home')).nativeElement).toBeTruthy();
   });
 
   it('given #isFirstTime is false and #isMobileResolution is false, then should show the correct view', () => {
@@ -82,7 +82,7 @@ describe('MainComponent', () => {
     component.isFirstTime = localStorage.getItem(SPLASH_KEY) == null;
     fixture.detectChanges();
 
-    expect(element.query(By.css('.home')).nativeElement).toBeTruthy();
-    expect(element.query(By.css('.footer')).nativeElement).toBeTruthy();
+    expect(element.query(By.scss('.home')).nativeElement).toBeTruthy();
+    expect(element.query(By.scss('.footer')).nativeElement).toBeTruthy();
   });
 });

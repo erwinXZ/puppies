@@ -3,7 +3,7 @@ import { SPLASH_KEY } from '../../splash/splash.component';
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
-  styleUrls: ['./main.component.css'],
+  styleUrls: ['./main.component.scss'],
 })
 export class MainComponent implements OnInit {
   isMobileResolution: boolean = false;
@@ -28,7 +28,7 @@ export class MainComponent implements OnInit {
         : (this.isMobileResolution = false);
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   updateIsFirstTime() {
     this.isFirstTime = localStorage.getItem(SPLASH_KEY) == null;

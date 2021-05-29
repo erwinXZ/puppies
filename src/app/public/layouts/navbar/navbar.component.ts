@@ -4,10 +4,9 @@ import { NavBarKey } from 'src/app/shared/constants/enum.constants';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-
   navBarItems = [
     {
       key: NavBarKey.Pet,
@@ -26,17 +25,13 @@ export class NavbarComponent implements OnInit {
     }
   ];
 
-  constructor() {
+  constructor() { }
 
-  }
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   onNavBarItemClick(indexNavBar: number) {
-    this.navBarItems.map((navBarItem, i) => {
-      navBarItem.selected = indexNavBar == i;
+    this.navBarItems.map((navBarItem, index) => {
+      navBarItem.selected = indexNavBar == index;
     });
   }
-
 }
