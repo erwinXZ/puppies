@@ -101,7 +101,7 @@ export class PetFirebaseService {
       const filterStartDate = moment().subtract((+filters.age) + YEAR_DEFAULT_VALUE, 'years').toDate();
       const filterEndDate = moment().subtract(+filters.age, 'years').toDate();
 
-      query = query.where('birthday', '>', filterStartDate).where('birthday', '<=', filterEndDate);
+      query = filters.age < 6 ? query.where('birthday', '>', filterStartDate).where('birthday', '<=', filterEndDate) : query.where('birthday', '<=', filterEndDate);
     }
     return query;
   }
