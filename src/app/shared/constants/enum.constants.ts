@@ -19,3 +19,14 @@ export enum NavBarKey {
   Association = 'association-nav-bar',
   Form = 'form-nav-bar'
 }
+
+export enum IconsKey {
+  Share = 'share-button',
+  Call = 'call-button',
+  Whatsapp = 'whatsapp-button',
+  Genre = 'pet-genre',
+  Calendar = 'pet-calendar',
+  Weight = 'pet-weight',
+  Check = 'pet-check',
+  Refuge = 'pet-refuge'
+}

@@ -1,36 +1,49 @@
-<div class="section">
-  <h2>Pocho</h2>
-  <button>Compartir</button>
-  <app-carousel></app-carousel>
-  <div>
-    <button>Llamar</button>
-    <button>Whatsapp</button>
+<div *ngIf="pet" class="section">
+  <h2 class="title-name">{{pet.name}}
+    <button type="button" class="button-white float-right">Compartir <app-custom-svg [key]="iconsKey.Share">
+      </app-custom-svg></button>
+  </h2>
+  <app-carousel *ngIf="pet.imagePath" [mainImage]="pet.imagePath"></app-carousel>
+  <div class="d-flex justify-content-end">
+    <button type="button" class="button-cyan m-2">Llamar</button>
+    <button type="button" class="button-cyan m-2">Whatsapp</button>
+  </div>
+  <br>
+  <div class="container">
+    <div class="row">
+      <div class="pet-detail col-xxs-12 col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-2 m-2">
+        <app-custom-svg class="pet-icon" [key]="iconsKey.Genre"></app-custom-svg>
+        <p>{{pet.genre}}</p>
+      </div>
+      <div class="pet-detail col-xxs-12 col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-2 m-2">
+        <app-custom-svg class="pet-icon" [key]="iconsKey.Calendar"></app-custom-svg>
+        <p>{{pet.age}}</p>
+      </div>
+      <div class="pet-detail col-xxs-12 col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-2 m-2">
+        <app-custom-svg class="pet-icon" [key]="iconsKey.Weight"></app-custom-svg>
+        <p>{{pet.weight}}</p>
+      </div>
+      <div *ngIf="pet.castrated" class="pet-detail col-xxs-12 col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-2 m-2">
+        <app-custom-svg class="pet-icon" [key]="iconsKey.Check"></app-custom-svg>
+        <p>Castrado</p>
+      </div>
+      <div class="pet-detail col-xxs-12 col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-2 m-2">
+        <app-custom-svg class="pet-icon" [key]="iconsKey.Refuge"></app-custom-svg>
+        <p>{{pet.refugeName}}</p>
+      </div>
+      <div *ngIf="pet.vaccinated" class="pet-detail col-xxs-12 col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-2 m-2">
+        <app-custom-svg class="pet-icon" [key]="iconsKey.Check"></app-custom-svg>
+        <p>Vacunas</p>
+      </div>
+    </div>
   </div>
   <div>
-    <div>
-      Macho
-    </div>
-    <div>
-      Macho
-    </div>
-    <div>
-      Macho
-    </div>
-    <div>
-      Macho
-    </div>
-    <div>
-      Macho
-    </div>
-    <div>
-      Macho
-    </div>
-  </div>
-  <div>
-    <h3>Sobre Pocho</h3>
-    <p>Es un perro super cariñoso y tranquilo. Le encantan el cariño y afecto de las personas. Es un perro de 4 años de edad
-    con un corazón enorme de cariño y sorpresas. Desde que nacio ha estado esperando un hogar. Todos sus hermanos han salido
-    menos el y su hermana Aurea.</p>
-    <b>En la protectora desde: 25 - 02 - 2020</b>
+    <h3 class="title-description">Sobre {{pet.name}}</h3>
+    <p class="description">Es un perro super cariñoso y tranquilo. Le encantan el cariño y afecto de las personas. Es un
+      perro de 4 años de edad
+      con un corazón enorme de cariño y sorpresas. Desde que nacio ha estado esperando un hogar. Todos sus hermanos han
+      salido
+      menos el y su hermana Aurea.</p>
+    <b class="period">En la protectora desde: 25 - 02 - 2020</b>
   </div>
 </div>

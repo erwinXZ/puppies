@@ -1,0 +1,91 @@
+.title-name {
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 29px;
+
+  color: #000000;
+}
+
+.button-white {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 128px;
+  height: 47px;
+  padding: 15px;
+
+  background: #fdfdfd;
+  box-shadow: 1px 4px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 14px;
+  line-height: 17px;
+
+  color: #28b0a2;
+}
+
+.button-cyan {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  /* padding: 15px 0px 15px 15px; */
+  /* width: 95px; */
+  height: 45px;
+
+  background: #28b0a2;
+  box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.4);
+  border-radius: 5px;
+
+  display: inline-block;
+
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 15px;
+
+  color: #fffdfd;
+
+  text-shadow: 0px 3px 4px rgba(0, 0, 0, 0.2);
+}
+
+.title-description {
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 20px;
+
+  color: #000000;
+}
+
+.description {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+
+  color: #000000;
+}
+
+.period {
+  font-size: 14px;
+  line-height: 17px;
+}
+
+.pet-detail {
+  height: 100px;
+  width: 101px;
+  border-radius: 5px;
+
+  background: #28b0a2;
+  box-shadow: inset 1px 1px 9px 8px rgba(0, 0, 0, 0.05);
+  border-radius: 5px;
+}
+
+.pet-icon {
+  display: block;
+  width: 57px;
+  height: 49px;
+  margin: 10px 22px 10px 22px;
+}

@@ -11,26 +11,10 @@ import * as moment from 'moment';
 export class PetTileComponent implements OnInit {
 
   @Input() pet: IPet;
-  petAge: string;
 
   constructor() { }
 
   ngOnInit(): void {
-    this.setPetAge();
+
   }
-
-  setPetAge() {
-    const birthday = moment(this.pet.birthday.toDate(), DATE_FORMAT);
-    const currentDate: moment.Moment = moment();
-
-    const yearsDifference = currentDate.diff(birthday, 'year');
-    const monthsDifference = currentDate.diff(birthday, 'months');
-
-    if (yearsDifference < YEAR_DEFAULT_VALUE) {
-      this.petAge = monthsDifference == MONTH_DEFAULT_VALUE ? '1 mes' : monthsDifference + ' meses';
-    } else {
-      this.petAge = yearsDifference == YEAR_DEFAULT_VALUE ? '1 año' : yearsDifference + ' años';
-    }
-  }
-
 }

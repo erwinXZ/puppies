@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument, Query } from '@angular/fire/firestore';
+import * as moment from 'moment';
 import { Observable } from 'rxjs';
+import { YEAR_DEFAULT_VALUE } from '../constants/date-format.constants';
 import { PAGINATION_SCROLL_ELEMENTS } from '../constants/pagination.constants';
 import { IPet, Pet } from '../model/pet.model';
-import * as moment from 'moment';
-import { YEAR_DEFAULT_VALUE } from '../constants/date-format.constants';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PetFirebaseService {
   nameCollection: string = 'pets';
-  newCollection: AngularFirestoreCollection<IPet>;
+  newCollection: AngularFirestoreCollection<Pet>;
   collectionList: Observable<Pet[]>;
 
   constructor(private afs: AngularFirestore) {
@@ -36,21 +36,21 @@ export class PetFirebaseService {
   }
 
   // Error with Code Inspector on code below
-  // findOne(id: string) {
-  //   const doc: AngularFirestoreDocument<IPet> = this.afs.doc(`${this.nameCollection}/${id}`);
-  //   const doc$: Observable<IPet> = doc.valueChanges();
-  //   return doc$;
-  // }
+  findOne(id: string) {
+    const doc: AngularFirestoreDocument<Pet> = this.afs.doc(`${this.nameCollection}/${id}`);
+    const doc$: Observable<Pet> = doc.valueChanges();
+    return doc$;
+  }
 
   findAll() {
     const collection: AngularFirestoreCollection<any> = this.afs.collection(this.nameCollection, ref => ref.orderBy('name', 'asc'));
-    const collection$: Observable<IPet[]> = collection.valueChanges();
+    const collection$: Observable<Pet[]> = collection.valueChanges();
     return collection$;
   }
 
   findAllByFilters(filters: any) {
     const collection: AngularFirestoreCollection<any> = this.afs.collection(this.nameCollection, ref => this.setQuery(ref, filters));
-    const collection$: Observable<IPet[]> = collection.valueChanges();
+    const collection$: Observable<Pet[]> = collection.valueChanges();
     return collection$;
   }
 

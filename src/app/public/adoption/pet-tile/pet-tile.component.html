@@ -8,7 +8,7 @@
 
   <div class="container-body">
     <h5 class="pet-name truncate">{{ pet.name }}</h5>
-    <span class="pet-age">{{ petAge }}</span>
+    <span class="pet-age">{{ pet.age }}</span>
     <br />
     <p class="pet-refuge truncate">{{ pet.refugeName }}</p>
     <button type="button" class="btn button-detail" [routerLink]="['/', pet.id, 'view']">Detalles</button>
