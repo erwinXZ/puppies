@@ -15,6 +15,7 @@ import { YEAR_DEFAULT_VALUE } from '../constants/date-format.constants';
   providedIn: 'root'
 })
 export class PetFirebaseService {
+  MAX_AGE_FILTER_VALUE = 6;
   nameCollection: string = 'pets';
   newCollection: AngularFirestoreCollection<IPet>;
   collectionList: Observable<Pet[]>;
@@ -120,14 +121,12 @@ export class PetFirebaseService {
       const filterEndDate = moment()
         .subtract(+filters.age, 'years')
         .toDate();
-
-      query = query
-        .where('birthday', '>', filterStartDate)
-        .where('birthday', '<=', filterEndDate);
+      query = filters.age < this.MAX_AGE_FILTER_VALUE ? query.where('birthday', '>', filterStartDate).where('birthday', '<=', filterEndDate) : query.where('birthday', '<=', filterEndDate);
     }
     if (refugeName != '') {
       query = query.where('refugeName', '==', refugeName);
     }
+    
     return query;
   }
 }
