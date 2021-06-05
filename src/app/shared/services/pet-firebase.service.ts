@@ -1,15 +1,21 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument, Query } from '@angular/fire/firestore';
-import * as moment from 'moment';
+import {
+  AngularFirestore,
+  AngularFirestoreCollection,
+  AngularFirestoreDocument,
+  Query
+} from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { YEAR_DEFAULT_VALUE } from '../constants/date-format.constants';
 import { PAGINATION_SCROLL_ELEMENTS } from '../constants/pagination.constants';
 import { IPet, Pet } from '../model/pet.model';
+import * as moment from 'moment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PetFirebaseService {
+  MAX_AGE_FILTER_VALUE = 6;
   nameCollection: string = 'pets';
   newCollection: AngularFirestoreCollection<Pet>;
   collectionList: Observable<Pet[]>;
@@ -43,14 +49,20 @@ export class PetFirebaseService {
   }
 
   findAll() {
-    const collection: AngularFirestoreCollection<any> = this.afs.collection(this.nameCollection, ref => ref.orderBy('name', 'asc'));
-    const collection$: Observable<Pet[]> = collection.valueChanges();
+    const collection: AngularFirestoreCollection<any> = this.afs.collection(
+      this.nameCollection,
+      ref => ref.orderBy('name', 'asc')
+    );
+    const collection$: Observable<IPet[]> = collection.valueChanges();
     return collection$;
   }
 
-  findAllByFilters(filters: any) {
-    const collection: AngularFirestoreCollection<any> = this.afs.collection(this.nameCollection, ref => this.setQuery(ref, filters));
-    const collection$: Observable<Pet[]> = collection.valueChanges();
+  findAllByFilters(filters: any, refugeName?: string) {
+    const collection: AngularFirestoreCollection<any> = this.afs.collection(
+      this.nameCollection,
+      ref => this.setQuery(ref, filters, refugeName)
+    );
+    const collection$: Observable<IPet[]> = collection.valueChanges();
     return collection$;
   }
 
@@ -62,7 +74,11 @@ export class PetFirebaseService {
   }
 
   findAllPaginate() {
-    return this.afs.collection(this.nameCollection, ref => ref.limit(PAGINATION_SCROLL_ELEMENTS).orderBy('name', 'asc')).snapshotChanges();
+    return this.afs
+      .collection(this.nameCollection, ref =>
+        ref.limit(PAGINATION_SCROLL_ELEMENTS).orderBy('name', 'asc')
+      )
+      .snapshotChanges();
   }
 
   prevPage(firstInResponse, getPrevStartAt) {
@@ -88,9 +104,10 @@ export class PetFirebaseService {
       .snapshotChanges();
   }
 
-  setQuery(ref: Query, filters: any) {
+  setQuery(ref: Query, filters: any, refugeName?: string) {
     let query: Query = ref;
     query.orderBy('name', 'asc');
+
     if (filters.specie) {
       query = query.where('specie', '==', filters.specie);
     }
@@ -98,13 +115,18 @@ export class PetFirebaseService {
       query = query.where('genre', '==', filters.genre);
     }
     if (filters.age) {
-      const filterStartDate = moment().subtract((+filters.age) + YEAR_DEFAULT_VALUE, 'years').toDate();
-      const filterEndDate = moment().subtract(+filters.age, 'years').toDate();
-
-      query = query.where('birthday', '>', filterStartDate).where('birthday', '<=', filterEndDate);
+      const filterStartDate = moment()
+        .subtract(+filters.age + YEAR_DEFAULT_VALUE, 'years')
+        .toDate();
+      const filterEndDate = moment()
+        .subtract(+filters.age, 'years')
+        .toDate();
+      query = filters.age < this.MAX_AGE_FILTER_VALUE ? query.where('birthday', '>', filterStartDate).where('birthday', '<=', filterEndDate) : query.where('birthday', '<=', filterEndDate);
     }
+    if (refugeName) {
+      query = query.where('refugeName', '==', refugeName);
+    }
+
     return query;
   }
 }
-
-

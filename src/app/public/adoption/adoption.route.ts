@@ -2,7 +2,7 @@ import { Routes } from '@angular/router';
 import { AdoptionComponent } from './adoption.component';
 import { PetDetailComponent } from './pet-detail/pet-detail.component';
 
-export const adoptionRoute: Routes = [
+export const ADOPTION_ROUTE: Routes = [
 	{
 		path: '',
 		component: AdoptionComponent

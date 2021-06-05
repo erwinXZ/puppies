@@ -1,7 +1,6 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { IPet, Pet } from 'src/app/shared/model/pet.model';
+import { Pet } from 'src/app/shared/model/pet.model';
 import { PetFirebaseService } from 'src/app/shared/services/pet-firebase.service';
 
 @Component({
@@ -9,8 +8,7 @@ import { PetFirebaseService } from 'src/app/shared/services/pet-firebase.service
   templateUrl: './adoption.component.html',
   styleUrls: ['./adoption.component.scss']
 })
-export class AdoptionComponent implements OnInit, OnDestroy {
-
+export class AdoptionComponent implements OnInit {
   eventSubscriber: Subscription = new Subscription();
   pets: Pet[];
   results: number = 0;
