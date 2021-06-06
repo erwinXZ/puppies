@@ -2,15 +2,24 @@
   <div class="row title-container">
     <p class="title">Albergue GIPAS</p>
   </div>
-  <div class="row counter-container">
-    <div class="col-4 counter adopted">
-      <app-counter [counter]="counterAdoptedAnimals"></app-counter>
+  <div class="row justify-content-center">
+    <div class="col-4 counter">
+      <app-counter
+        [counter]="counterAdoptedAnimals"
+        [backgroundColor]="'#dddddd'"
+      ></app-counter>
     </div>
-    <div class="col-4 counter for-adoption">
-      <app-counter [counter]="counterAnimalsForAdoption"></app-counter>
+    <div class="col-4 counter">
+      <app-counter
+        [counter]="counterAnimalsForAdoption"
+        [backgroundColor]="'#9eb1bd'"
+      ></app-counter>
     </div>
-    <div class="col-4 counter urgent">
-      <app-counter [counter]="counterUrgent"></app-counter>
+    <div class="col-4 counter">
+      <app-counter
+        [counter]="counterUrgent"
+        [backgroundColor]="'#28b0a2'"
+      ></app-counter>
     </div>
   </div>
   <div class="row">
@@ -25,14 +34,14 @@
     <div class="col-3" style="display: inline-flex; padding: 0%;">
       <img
         class="icon-social-network"
-        src="../../../../assets/img/facebook.png"
+        src="/assets/img/facebook.png"
         height="40px"
         width="40px"
         alt="Facebook botón"
       />
       <img
         class="icon-social-network"
-        src="../../../../assets/img/facebook.png"
+        src="/assets/img/facebook.png"
         height="40px"
         width="40px"
         alt="WhatsApp botón"

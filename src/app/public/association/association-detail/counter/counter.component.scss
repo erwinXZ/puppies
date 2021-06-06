@@ -26,3 +26,18 @@
   text-align: center;
   display: block;
 }
+
+.counter {
+  max-width: 100px;
+  box-shadow: inset 1px 1px 9px 8px rgba(0, 0, 0, 0.05);
+  border-radius: 5px;
+  min-height: 100px;
+  margin: 7px;
+}
+
+@media screen and (max-width: 320px) {
+  .counter {
+    max-width: 92px;
+    margin: 2px;
+  }
+}

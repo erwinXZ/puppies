@@ -11,28 +11,8 @@
   display: block;
 }
 
-.counter-container {
-  justify-content: center;
-}
-
 .counter {
-  max-width: 100px;
-  box-shadow: inset 1px 1px 9px 8px rgba(0, 0, 0, 0.05);
-  border-radius: 5px;
-  min-height: 100px;
-  margin: 7px;
-}
-
-.adopted {
-  background: #dddddd;
-}
-
-.for-adoption {
-  background: #9eb1bd;
-}
-
-.urgent {
-  background: #28b0a2;
+  padding: 0%;
 }
 
 .carousel-container {
@@ -57,7 +37,6 @@
 .social-network-row {
   margin-top: 30px;
   padding: 10px;
-  display: inline-flex;
   margin-right: 20px;
   padding-left: 15px;
 }
@@ -82,7 +61,6 @@
   font-weight: 800;
   font-size: 16px;
   line-height: 20px;
-  text-align: center;
 
   color: #000000;
 }
@@ -90,12 +68,5 @@
 @media screen and (max-width: 375px) {
   .social-network-text {
     padding: 0%;
-  }
-}
-
-@media screen and (max-width: 320px) {
-  .counter {
-    max-width: 92px;
-    margin: 2px;
   }
 }
