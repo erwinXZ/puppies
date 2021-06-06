@@ -1,0 +1,19 @@
+.pet-attribute {
+  height: 100px;
+  width: 101px;
+
+  background: #28b0a2;
+  box-shadow: inset 1px 1px 9px 8px rgba(0, 0, 0, 0.05);
+  border-radius: 5px;
+
+  display: flex;
+  text-align: center;
+}
+
+.pet-icon {
+  margin: auto;
+}
+
+.attribute {
+  margin: auto;
+}

@@ -5,9 +5,10 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { AdoptionComponent } from './adoption.component';
 import { ADOPTION_ROUTE } from './adoption.route';
 import { PetDetailComponent } from './pet-detail/pet-detail.component';
+import { PetAttributeComponent } from './pet-attribute/pet-attribute.component';
 
 @NgModule({
-  declarations: [AdoptionComponent, PetDetailComponent],
+  declarations: [AdoptionComponent, PetDetailComponent, PetAttributeComponent],
   imports: [
     SharedModule,
     CommonModule,

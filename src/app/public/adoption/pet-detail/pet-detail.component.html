@@ -1,51 +1,44 @@
 <div *ngIf="pet" class="section mt-1">
-  <div class="urgent-container">
-    <h3 class="title-urgent">URGENTE
-      <img src="/assets/svg/urgen-icon.svg"><img>
-    </h3>
+  <div *ngIf="pet.status == 'URGENT'" class="urgent-container">
+    <h3 class="title-urgent">URGENTE</h3>
+    <img class="float-right" style="margin: 3px 10px 0px 10px;" src="/assets/svg/urgent-icon.svg"><img>
   </div>
-  <div class="mt-1">
-    <h2 class="title-name float-left">{{pet.name}}</h2>
-    <button type="button" class="button-white float-right mb-2">Compartir
+
+  <div class="mt-2 mb-2" style="overflow: auto;">
+    <h2 class="mt-2 mb-2 title-name float-left">{{pet.name}}</h2>
+    <button type="button" class="mt-2 mb-2 button-white float-right">Compartir
       <img class="ml-2" style="margin-top: 2px;" src="/assets/svg/share-icon.svg"><img>
     </button>
   </div>
   
-  
   <div class="mt-2">
-    <app-carousel class="mt-2" *ngIf="pet.imagePath" [mainImage]="pet.imagePath"></app-carousel>
+    <app-carousel *ngIf="pet.imagePath" [mainImage]="pet.imagePath"></app-carousel>
   </div>
   
-  <div class="d-flex justify-content-end">
+  <div class="d-flex justify-content-end m-2">
     <button type="button" class="btn button-cyan m-2">Llamar</button>
     <button type="button" class="btn button-cyan m-2">Whatsapp</button>
   </div>
-  <br>
+
   <div class="container">
     <div class="row">
-      <div class="pet-detail col-xxs-12 col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-2 m-2">
-        <app-custom-svg class="pet-icon" [key]="iconsKey.Genre"></app-custom-svg>
-        <p>{{pet.genre}}</p>
+      <div class="col">
+        <app-pet-attribute [iconKey]="iconsKey.Genre" [attribute]="pet.genre"></app-pet-attribute>
       </div>
-      <div class="pet-detail col-xxs-12 col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-2 m-2">
-        <app-custom-svg class="pet-icon" [key]="iconsKey.Calendar"></app-custom-svg>
-        <p>{{pet.age}}</p>
+      <div class="col">
+        <app-pet-attribute [iconKey]="iconsKey.Calendar" [attribute]="pet.age"></app-pet-attribute>
       </div>
-      <div class="pet-detail col-xxs-12 col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-2 m-2">
-        <app-custom-svg class="pet-icon" [key]="iconsKey.Weight"></app-custom-svg>
-        <p>{{pet.weight}}</p>
+      <div class="col">
+        <app-pet-attribute [iconKey]="iconsKey.Weight" [attribute]="pet.weight"></app-pet-attribute>
       </div>
-      <div *ngIf="pet.castrated" class="pet-detail col-xxs-12 col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-2 m-2">
-        <app-custom-svg class="pet-icon" [key]="iconsKey.Check"></app-custom-svg>
-        <p>Castrado</p>
+      <div *ngIf="pet.castrated" class="col">
+        <app-pet-attribute [iconKey]="iconsKey.Check" [attribute]="'Castrado'"></app-pet-attribute>
       </div>
-      <div class="pet-detail col-xxs-12 col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-2 m-2">
-        <app-custom-svg class="pet-icon" [key]="iconsKey.Refuge"></app-custom-svg>
-        <p>{{pet.refugeName}}</p>
+      <div class="col">
+        <app-pet-attribute [iconKey]="iconsKey.Refuge" [attribute]="pet.refugeName"></app-pet-attribute>
       </div>
-      <div *ngIf="pet.vaccinated" class="pet-detail col-xxs-12 col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-2 m-2">
-        <app-custom-svg class="pet-icon" [key]="iconsKey.Check"></app-custom-svg>
-        <p>Vacunas</p>
+      <div *ngIf="pet.vaccinated" class="col">
+        <app-pet-attribute [iconKey]="iconsKey.Check" [attribute]="'Vacunas'"></app-pet-attribute>
       </div>
     </div>
   </div>
