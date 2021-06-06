@@ -5,7 +5,12 @@
     (onAgeSelected)="setAgeFilter($event)"
     (onCleanSelected)="cleanFilters()"
   ></app-filters>
-  <p class="results mt-3 mb-2">{{ results }} resultados encontrados</p>
+  <p *ngIf="results > 0" class="results mt-3 mb-2">
+    {{ results }} resultados encontrados
+  </p>
+  <p *ngIf="results == 0" class="results mt-3 mb-2">
+    No se encontraron resultados
+  </p>
   <div class="container">
     <div class="row">
       <div
@@ -16,4 +21,8 @@
       </div>
     </div>
   </div>
+  <app-empty-pet-list
+    class="container-empty-list"
+    *ngIf="results == 0"
+  ></app-empty-pet-list>
 </div>

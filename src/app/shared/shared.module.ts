@@ -5,6 +5,7 @@ import { BooleanTranslatePipe } from './util/boolean-translate';
 import { PetListComponent } from './components/pet-list/pet-list.component';
 import { PetTileComponent } from '../public/adoption/pet-tile/pet-tile.component';
 import { FiltersComponent } from '../public/adoption/filters/filters.component';
+import { EmptyPetListComponent } from './components/pet-list/empty-pet-list/empty-pet-list.component';
 @NgModule({
   imports: [SharedLibsModule],
   declarations: [
@@ -12,7 +13,8 @@ import { FiltersComponent } from '../public/adoption/filters/filters.component';
     CarouselComponent,
     PetListComponent,
     PetTileComponent,
-    FiltersComponent
+    FiltersComponent,
+    EmptyPetListComponent
   ],
   exports: [
     SharedLibsModule,
