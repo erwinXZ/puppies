@@ -10,7 +10,6 @@ import { PetFirebaseService } from 'src/app/shared/services/pet-firebase.service
   styleUrls: ['./pet-detail.component.css']
 })
 export class PetDetailComponent implements OnInit {
-
   pet: Pet;
   iconsKey = IconsKey;
 
