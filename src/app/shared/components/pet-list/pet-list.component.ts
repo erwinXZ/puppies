@@ -28,12 +28,11 @@ export class PetListComponent implements OnInit {
   }
 
   loadAll() {
-    this.eventSubscriber.add(
-      this.petFirebaseService.findAllByFilters({ specie: this.specieFilter, genre: this.genreFilter, age: this.ageFilter }).subscribe((result: IPet[]) => {
-        this.pets = result;
-        this.results = this.pets.length;
-      })
-    );
+    this.eventSubscriber.unsubscribe();
+    this.eventSubscriber = this.petFirebaseService.findAllByFilters({ specie: this.specieFilter, genre: this.genreFilter, age: this.ageFilter }).subscribe((result: IPet[]) => {
+      this.pets = result;
+      this.results = this.pets.length;
+    });
   }
 
   ngOnDestroy() {

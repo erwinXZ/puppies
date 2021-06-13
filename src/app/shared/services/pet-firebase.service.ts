@@ -17,11 +17,11 @@ import * as moment from 'moment';
 export class PetFirebaseService {
   MAX_AGE_FILTER_VALUE = 6;
   nameCollection: string = 'pets';
-  newCollection: AngularFirestoreCollection<Pet>;
-  collectionList: Observable<Pet[]>;
+  newCollection: AngularFirestoreCollection<IPet>;
+  collectionList: Observable<IPet[]>;
 
   constructor(private afs: AngularFirestore) {
-    this.newCollection = this.afs.collection<Pet>(this.nameCollection);
+    this.newCollection = this.afs.collection<IPet>(this.nameCollection);
     this.collectionList = this.newCollection.valueChanges();
   }
 
@@ -43,7 +43,7 @@ export class PetFirebaseService {
 
   // Error with Code Inspector on code below
   findOne(id: string) {
-    const doc: AngularFirestoreDocument<Pet> = this.afs.doc(`${this.nameCollection}/${id}`);
+    const doc: AngularFirestoreDocument<IPet> = this.afs.doc(`${this.nameCollection}/${id}`);
     const doc$: Observable<Pet> = doc.valueChanges();
     return doc$;
   }
