@@ -5,11 +5,11 @@ import {
   AngularFirestoreDocument,
   Query
 } from '@angular/fire/firestore';
+import * as moment from 'moment';
 import { Observable } from 'rxjs';
 import { YEAR_DEFAULT_VALUE } from '../constants/date-format.constants';
 import { PAGINATION_SCROLL_ELEMENTS } from '../constants/pagination.constants';
-import { IPet, Pet } from '../model/pet.model';
-import * as moment from 'moment';
+import { IPet } from '../model/pet.model';
 
 @Injectable({
   providedIn: 'root'
@@ -44,7 +44,7 @@ export class PetFirebaseService {
   // Error with Code Inspector on code below
   findOne(id: string) {
     const doc: AngularFirestoreDocument<IPet> = this.afs.doc(`${this.nameCollection}/${id}`);
-    const doc$: Observable<Pet> = doc.valueChanges();
+    const doc$: Observable<IPet> = doc.valueChanges();
     return doc$;
   }
 
