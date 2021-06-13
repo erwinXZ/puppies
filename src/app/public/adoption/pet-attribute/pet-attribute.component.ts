@@ -9,6 +9,7 @@ export class PetAttributeComponent implements OnInit {
 
   @Input() iconKey: string;
   @Input() attribute: string;
+  @Input() backgroundColor: string;
 
   constructor() { }
 

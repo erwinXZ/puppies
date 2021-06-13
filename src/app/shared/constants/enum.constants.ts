@@ -5,7 +5,9 @@ export enum Specie {
 
 export enum Genre {
   Female = 'F',
-  Male = 'M'
+  Male = 'M',
+  FemaleLabel = 'Hembra',
+  MaleLabel = 'Macho'
 }
 
 export enum Status {

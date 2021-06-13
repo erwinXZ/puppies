@@ -5,21 +5,29 @@ import { CarouselComponent } from './components/carousel/carousel.component';
 import { CustomSvgComponent } from './components/custom-svg/custom-svg.component';
 import { PetListComponent } from './components/pet-list/pet-list.component';
 import { SharedLibsModule } from './shared-libs.module';
-import { BooleanTranslatePipe } from './util/boolean-translate';
+import { EmptyPetListComponent } from './components/pet-list/empty-pet-list/empty-pet-list.component';
+import { GenrePipe } from './util/genre.pipe';
+import { BirthdayPipe } from './util/birthday.pipe';
+import { CustomDatePipe } from './util/custom-date.pipe';
 
 @NgModule({
   imports: [SharedLibsModule],
   declarations: [
-    BooleanTranslatePipe,
+    GenrePipe,
+    BirthdayPipe,
+    CustomDatePipe,
     CarouselComponent,
     CustomSvgComponent,
     PetListComponent,
     PetTileComponent,
-    FiltersComponent
+    FiltersComponent,
+    EmptyPetListComponent
   ],
   exports: [
     SharedLibsModule,
-    BooleanTranslatePipe,
+    GenrePipe,
+    BirthdayPipe,
+    CustomDatePipe,
     CarouselComponent,
     CustomSvgComponent,
     PetListComponent,

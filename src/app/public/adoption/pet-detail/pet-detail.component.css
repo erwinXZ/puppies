@@ -24,7 +24,7 @@
 
   color: #000000;
   width: 50%;
-  padding: 8px;
+  padding: 8px 8px 8px 0px;
 }
 
 .button-white {
@@ -49,9 +49,6 @@
 }
 
 .button-cyan {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
   height: 45px;
 
   background: #28b0a2;
@@ -72,6 +69,7 @@
 }
 
 .title-description {
+  font-style: normal;
   font-weight: 800;
   font-size: 16px;
   line-height: 20px;
@@ -80,6 +78,7 @@
 }
 
 .description {
+  font-style: normal;
   font-weight: 500;
   font-size: 16px;
   line-height: 20px;
@@ -90,4 +89,5 @@
 .period {
   font-size: 14px;
   line-height: 17px;
+  color: #000000;
 }
