@@ -1,23 +1,24 @@
 import { Component, HostListener, OnInit } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
 import { SPLASH_KEY } from '../../splash/splash.component';
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
-  styleUrls: ['./main.component.scss'],
+  styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements OnInit {
   isMobileResolution: boolean = false;
-  isFirstTime: boolean = false;
+  isFirstTime: boolean = true;
 
   @HostListener('window:resize', ['$event'])
   onResize(event) {
     this.setIsMobileResolution();
   }
 
-  constructor() {
+  constructor(private router: Router) {
     this.setIsMobileResolution();
     if (this.isMobileResolution) {
-      this.updateIsFirstTime();
+      this.isFirstTime = localStorage.getItem(SPLASH_KEY) == null;
     }
   }
 
@@ -28,9 +29,9 @@ export class MainComponent implements OnInit {
         : (this.isMobileResolution = false);
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 
   updateIsFirstTime() {
-    this.isFirstTime = localStorage.getItem(SPLASH_KEY) == null;
+    this.isFirstTime = false;
   }
 }
