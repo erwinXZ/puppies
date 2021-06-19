@@ -1,7 +1,6 @@
 import { Moment } from 'moment';
 import { Genre, Specie, Status } from '../constants/enum.constants';
 
-
 export interface IPet {
   id?: string;
   birthday?: Moment;
