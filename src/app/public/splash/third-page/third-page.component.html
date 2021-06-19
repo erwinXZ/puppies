@@ -1,14 +1,26 @@
 <div class="bg">
   <div class="content-left"></div>
-  <div class="content-right">
-    <h3>
-      Con esta plataforma todos podemos darle una nueva oportunidad a los animales que buscan ser adoptados.
-      <br><br><br>
-      Te unes tú también?
-    </h3>
+  <div class="container content-right">
+    <div class="row">
+      <h3>
+        Con esta plataforma todos podemos darle una nueva oportunidad a los
+        animales que buscan ser adoptados.
+        <br /><br />
+        Te unes tú también?
+      </h3>
+    </div>
+    <div class="row">
+      <div class="logo">
+        <img src="/assets/img/logo-small.png" alt="" />
+      </div>
+    </div>
+    <div class="row">
+      <button class="btn-go" (click)="onGoToAdoption()">
+        Vamos a adoptar!
+      </button>
+    </div>
   </div>
-  <div class="img-dog"></div>
-  <button class="btn-go" (click)="onGoToAdoption()">Vamos a adoptar!</button>
-  <div class="img-arrow" (click)="onClickPrevious()"></div>
+  <div class="img-arrow" (click)="onClickPrevious()">
+    <img src="/assets/svg/arrow-left.svg" alt="Ir a la derecha" />
+  </div>
 </div>
-

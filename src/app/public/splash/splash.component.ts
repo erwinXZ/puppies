@@ -3,7 +3,7 @@ import {
   EventEmitter,
   OnInit,
   Output,
-  ViewChild,
+  ViewChild
 } from '@angular/core';
 import { NgbCarousel, NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 
@@ -13,7 +13,7 @@ export const SPLASH_KEY = 'SplashKey';
   selector: 'app-splash',
   templateUrl: './splash.component.html',
   styleUrls: ['./splash.component.scss'],
-  providers: [NgbCarouselConfig],
+  providers: [NgbCarouselConfig]
 })
 export class SplashComponent implements OnInit {
   @ViewChild('myCarousel') myCarousel: NgbCarousel;
@@ -28,7 +28,7 @@ export class SplashComponent implements OnInit {
     localStorage.setItem(SPLASH_KEY, 'true');
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 
   goToNextPage() {
     this.myCarousel.next();
