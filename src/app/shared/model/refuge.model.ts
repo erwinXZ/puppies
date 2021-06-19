@@ -13,7 +13,7 @@ export interface IRefuge {
   name?: string;
   order?: number;
   urgentQuantity?: number;
-  whatsappLink?: string;
+  hasWhatsApp?: boolean;
   createdDate?: Moment;
 }
 
@@ -31,7 +31,7 @@ export class Refuge implements IRefuge {
     public name?: string,
     public order?: number,
     public urgentQuantity?: number,
-    public whatsappLink?: string,
+    public hasWhatsApp?: boolean,
     public createdDate?: Moment
   ) {}
 }

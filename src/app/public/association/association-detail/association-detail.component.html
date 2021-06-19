@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row title-container">
-    <p class="title">Albergue GIPAS</p>
+    <p class="title">{{ refuge.name }}</p>
   </div>
   <div class="row justify-content-center">
     <div class="col-4 counter">
@@ -24,39 +24,46 @@
   </div>
   <div class="row">
     <div class="container carousel-container">
-      <app-carousel [mainImage]="logoImage" [images]="imageList"></app-carousel>
+      <app-carousel
+        [mainImage]="refuge.logoPath"
+        [images]="refuge.images"
+      ></app-carousel>
     </div>
   </div>
-  <div class="row social-network-row">
+  <div
+    *ngIf="refuge.facebookUrl || refuge.hasWhatsApp"
+    class="row social-network-row"
+  >
     <div class="col-9 social-network-text">
       <span class="social-network">Contáctanos en nuestras redes:</span>
     </div>
     <div class="col-3" style="display: inline-flex; padding: 0%;">
-      <img
-        class="icon-social-network"
-        src="/assets/img/facebook.png"
-        height="40px"
-        width="40px"
-        alt="Facebook botón"
-      />
-      <img
-        class="icon-social-network"
-        src="/assets/img/facebook.png"
-        height="40px"
-        width="40px"
-        alt="WhatsApp botón"
-      />
+      <a [href]="refuge.facebookUrl">
+        <img
+          *ngIf="refuge.facebookUrl"
+          class="icon-social-network"
+          src="/assets/img/facebook.png"
+          height="40px"
+          width="40px"
+          alt="Facebook botón"
+        />
+      </a>
+
+      <a *ngIf="refuge.hasWhatsApp" [href]="getWhatsApp()">
+        <img
+          *ngIf="refuge.hasWhatsApp"
+          class="icon-social-network"
+          src="/assets/svg/whatsapp.svg"
+          height="40px"
+          width="40px"
+          alt="WhatsApp botón"
+        />
+      </a>
     </div>
   </div>
   <div class="row">
     <div class="container" style="margin-top: 20px;">
-      <p class="description">
-        Somos una organización sin fines de lucro que busca incrementar el
-        número de adopciones en Lima, a través de un espacio virtual que
-        centralice las oportunidades de adopción, brindando además asesoría
-        integral a los adoptantes y trabajando en coordinación con una red de
-        albergues.
-      </p>
+      <p class="description">{{ refuge.description }}</p>
     </div>
   </div>
   <div class="row" style="margin-top: 20px;">
@@ -65,6 +72,6 @@
     </p>
   </div>
   <div class="row">
-    <app-pet-list [refugeName]="refugeName"></app-pet-list>
+    <app-pet-list [refugeName]="refuge.name"></app-pet-list>
   </div>
 </div>

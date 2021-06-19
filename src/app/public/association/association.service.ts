@@ -23,4 +23,11 @@ export class AssociationService {
     );
     return collection.valueChanges();
   }
+
+  get(id: string) {
+    return this.afs
+      .collection(this.nameCollection)
+      .doc(id)
+      .get();
+  }
 }
