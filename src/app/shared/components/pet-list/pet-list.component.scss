@@ -13,7 +13,12 @@
 }
 
 .spinner-style {
-  text-align: center;
-  display: block;
-  margin-top: 24px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -50px;
+}
+
+.spinner-grow {
+  color: #28b0a2;
 }
