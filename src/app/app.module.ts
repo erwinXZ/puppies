@@ -14,12 +14,11 @@ import { AssociationModule } from './public/association/association.module';
 import { FooterComponent } from './public/layouts/footer/footer.component';
 import { MainComponent } from './public/layouts/main/main.component';
 import { NavbarComponent } from './public/layouts/navbar/navbar.component';
-import { SharedModule } from './shared/shared.module';
-import { SplashComponent } from './public/splash/splash.component';
 import { FirstPageComponent } from './public/splash/first-page/first-page.component';
 import { SecondPageComponent } from './public/splash/second-page/second-page.component';
+import { SplashComponent } from './public/splash/splash.component';
 import { ThirdPageComponent } from './public/splash/third-page/third-page.component';
-import { CustomSvgComponent } from './shared/components/custom-svg/custom-svg.component';
+import { SharedModule } from './shared/shared.module';
 
 const config = {
   apiKey: environment.apiKey,
@@ -38,8 +37,7 @@ const config = {
     SplashComponent,
     FirstPageComponent,
     SecondPageComponent,
-    ThirdPageComponent,
-    CustomSvgComponent
+    ThirdPageComponent
   ],
   imports: [
     BrowserModule,
@@ -57,4 +55,4 @@ const config = {
   bootstrap: [MainComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class AppModule {}
+export class AppModule { }

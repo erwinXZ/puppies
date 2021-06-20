@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { NavBarKey } from '../../constants/enum.constants';
+import { IconsKey, NavBarKey } from '../../constants/enum.constants';
 
 @Component({
   selector: 'app-custom-svg',
@@ -10,6 +10,7 @@ export class CustomSvgComponent implements OnInit {
 
   @Input() key: string;
   navBarKey = NavBarKey;
+  iconsKey = IconsKey;
 
   constructor() { }
 

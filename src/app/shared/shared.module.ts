@@ -1,16 +1,23 @@
 import { NgModule } from '@angular/core';
-import { CarouselComponent } from './components/carousel/carousel.component';
-import { SharedLibsModule } from './shared-libs.module';
-import { BooleanTranslatePipe } from './util/boolean-translate';
-import { PetListComponent } from './components/pet-list/pet-list.component';
-import { PetTileComponent } from '../public/adoption/pet-tile/pet-tile.component';
 import { FiltersComponent } from '../public/adoption/filters/filters.component';
+import { PetTileComponent } from '../public/adoption/pet-tile/pet-tile.component';
+import { CarouselComponent } from './components/carousel/carousel.component';
+import { CustomSvgComponent } from './components/custom-svg/custom-svg.component';
+import { PetListComponent } from './components/pet-list/pet-list.component';
+import { SharedLibsModule } from './shared-libs.module';
 import { EmptyPetListComponent } from './components/pet-list/empty-pet-list/empty-pet-list.component';
+import { GenrePipe } from './util/genre.pipe';
+import { BirthdayPipe } from './util/birthday.pipe';
+import { CustomDatePipe } from './util/custom-date.pipe';
+
 @NgModule({
   imports: [SharedLibsModule],
   declarations: [
-    BooleanTranslatePipe,
+    GenrePipe,
+    BirthdayPipe,
+    CustomDatePipe,
     CarouselComponent,
+    CustomSvgComponent,
     PetListComponent,
     PetTileComponent,
     FiltersComponent,
@@ -18,9 +25,12 @@ import { EmptyPetListComponent } from './components/pet-list/empty-pet-list/empt
   ],
   exports: [
     SharedLibsModule,
-    BooleanTranslatePipe,
+    GenrePipe,
+    BirthdayPipe,
+    CustomDatePipe,
     CarouselComponent,
-    PetListComponent
+    CustomSvgComponent,
+    PetListComponent,
   ]
 })
-export class SharedModule {}
+export class SharedModule { }

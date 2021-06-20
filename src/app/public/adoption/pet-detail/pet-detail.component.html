@@ -1,0 +1,56 @@
+<div *ngIf="pet" class="section mt-1">
+  <div *ngIf="pet.status == 'URGENT'" class="urgent-container">
+    <h3 class="title-urgent">URGENTE</h3>
+    <img class="float-right" style="margin: 3px 10px 0px 10px;" src="/assets/svg/urgent-icon.svg"><img>
+  </div>
+
+  <div class="mt-2 mb-2" style="overflow: auto;">
+    <h2 class="mt-2 mb-2 title-name float-left">{{pet.name}}</h2>
+    <button type="button" class="mt-2 mb-2 button-white float-right">Compartir
+      <img class="ml-2" style="margin-top: 2px;" src="/assets/svg/share-icon.svg"><img>
+    </button>
+  </div>
+
+  <div class="mt-2">
+    <app-carousel *ngIf="pet.imagePath" [mainImage]="pet.imagePath"></app-carousel>
+  </div>
+
+  <div class="d-flex justify-content-end align-items-center my-2">
+    <a [href]="'tel: ' + pet.cellphone" class="btn button-cyan d-flex align-items-center justify-content-center  m-2">
+      <span>Llamar</span>
+      <img class="ml-2" src="/assets/svg/cellphone-icon.svg"><img>
+    </a>
+    <a [href]="whatsappLink" class="btn button-cyan d-flex align-items-center justify-content-center  m-2">
+      <span>Whatsapp</span>
+      <img class="ml-2" src="/assets/svg/chat-icon.svg"><img>
+    </a>
+  </div>
+
+  <div>
+    <div class="row">
+      <div *ngIf="pet.genre" class="col-4 col-sm-3 col-md-2 col-lg-2 col-xl-2 my-2">
+        <app-pet-attribute [iconKey]="iconsKey.Genre" [attribute]="pet.genre | genre" [backgroundColor]="'#28b0a2'"></app-pet-attribute>
+      </div>
+      <div *ngIf="pet.birthday" class="col-4 col-sm-3 col-md-2 col-lg-2 col-xl-2 my-2">
+        <app-pet-attribute [iconKey]="iconsKey.Calendar" [attribute]="pet.birthday | birthday" [backgroundColor]="'#9eb1bd'"></app-pet-attribute>
+      </div>
+      <div *ngIf="pet.weight" class="col-4 col-sm-3 col-md-2 col-lg-2 col-xl-2 my-2">
+        <app-pet-attribute [iconKey]="iconsKey.Weight" [attribute]="pet.weight ? pet.weight + ' Kg.' : ''" [backgroundColor]="'#dedede'"></app-pet-attribute>
+      </div>
+      <div *ngIf="pet.castrated" class="col-4 col-sm-3 col-md-2 col-lg-2 col-xl-2 my-2">
+        <app-pet-attribute [iconKey]="iconsKey.Check" [attribute]="'Castrado'" [backgroundColor]="'#dedede'"></app-pet-attribute>
+      </div>
+      <div *ngIf="pet.refugeName" class="col-4 col-sm-3 col-md-2 col-lg-2 col-xl-2 my-2">
+        <app-pet-attribute [iconKey]="iconsKey.Refuge" [attribute]="pet.refugeName" [backgroundColor]="'#28b0a2'"></app-pet-attribute>
+      </div>
+      <div *ngIf="pet.vaccinated" class="col-4 col-sm-3 col-md-2 col-lg-2 col-xl-2 my-2">
+        <app-pet-attribute [iconKey]="iconsKey.Check" [attribute]="'Vacunas'" [backgroundColor]="'#9eb1bd'"></app-pet-attribute>
+      </div>
+    </div>
+  </div>
+  <div class="mt-4">
+    <h3 class="title-description">Sobre {{pet.name}}</h3>
+    <p class="description">{{pet.description}}</p>
+    <b class="period">En la protectora desde: {{pet.enteredDate | customDate}}</b>
+  </div>
+</div>

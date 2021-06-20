@@ -5,11 +5,11 @@ import {
   AngularFirestoreDocument,
   Query
 } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
-import { PAGINATION_SCROLL_ELEMENTS } from '../constants/pagination.constants';
-import { IPet, Pet } from '../model/pet.model';
 import * as moment from 'moment';
+import { Observable } from 'rxjs';
 import { YEAR_DEFAULT_VALUE } from '../constants/date-format.constants';
+import { PAGINATION_SCROLL_ELEMENTS } from '../constants/pagination.constants';
+import { IPet } from '../model/pet.model';
 
 @Injectable({
   providedIn: 'root'
@@ -18,10 +18,10 @@ export class PetFirebaseService {
   MAX_AGE_FILTER_VALUE = 6;
   nameCollection: string = 'pets';
   newCollection: AngularFirestoreCollection<IPet>;
-  collectionList: Observable<Pet[]>;
+  collectionList: Observable<IPet[]>;
 
   constructor(private afs: AngularFirestore) {
-    this.newCollection = this.afs.collection<Pet>(this.nameCollection);
+    this.newCollection = this.afs.collection<IPet>(this.nameCollection);
     this.collectionList = this.newCollection.valueChanges();
   }
 
@@ -42,11 +42,11 @@ export class PetFirebaseService {
   }
 
   // Error with Code Inspector on code below
-  // findOne(id: string) {
-  //   const doc: AngularFirestoreDocument<IPet> = this.afs.doc(`${this.nameCollection}/${id}`);
-  //   const doc$: Observable<IPet> = doc.valueChanges();
-  //   return doc$;
-  // }
+  findOne(id: string) {
+    const doc: AngularFirestoreDocument<IPet> = this.afs.doc(`${this.nameCollection}/${id}`);
+    const doc$: Observable<IPet> = doc.valueChanges();
+    return doc$;
+  }
 
   findAll() {
     const collection: AngularFirestoreCollection<any> = this.afs.collection(
@@ -57,7 +57,7 @@ export class PetFirebaseService {
     return collection$;
   }
 
-  findAllByFilters(filters: any, refugeName: string) {
+  findAllByFilters(filters: any, refugeName?: string) {
     const collection: AngularFirestoreCollection<any> = this.afs.collection(
       this.nameCollection,
       ref => this.setQuery(ref, filters, refugeName)
@@ -104,7 +104,7 @@ export class PetFirebaseService {
       .snapshotChanges();
   }
 
-  setQuery(ref: Query, filters: any, refugeName: string) {
+  setQuery(ref: Query, filters: any, refugeName?: string) {
     let query: Query = ref;
     query.orderBy('name', 'asc');
 
@@ -123,10 +123,10 @@ export class PetFirebaseService {
         .toDate();
       query = filters.age < this.MAX_AGE_FILTER_VALUE ? query.where('birthday', '>', filterStartDate).where('birthday', '<=', filterEndDate) : query.where('birthday', '<=', filterEndDate);
     }
-    if (refugeName != '') {
+    if (refugeName) {
       query = query.where('refugeName', '==', refugeName);
     }
-    
+
     return query;
   }
 }

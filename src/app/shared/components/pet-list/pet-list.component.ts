@@ -19,7 +19,9 @@ export class PetListComponent implements OnInit {
   genreFilter: string;
   ageFilter: string;
 
-  constructor(protected petFirebaseService: PetFirebaseService) { }
+  constructor(
+    protected petFirebaseService: PetFirebaseService
+  ) { }
 
   ngOnInit(): void {
     this.loadAll();
@@ -27,14 +29,10 @@ export class PetListComponent implements OnInit {
 
   loadAll() {
     this.eventSubscriber.unsubscribe();
-    this.eventSubscriber = this.petFirebaseService.findAllByFilters({
-      specie: this.specieFilter,
-      genre: this.genreFilter,
-      age: this.ageFilter
-    }, this.refugeName).subscribe(res => {
-      this.pets = res;
+    this.eventSubscriber = this.petFirebaseService.findAllByFilters({ specie: this.specieFilter, genre: this.genreFilter, age: this.ageFilter }).subscribe((result: IPet[]) => {
+      this.pets = result;
       this.results = this.pets.length;
-    })
+    });
   }
 
   ngOnDestroy() {
