@@ -11,6 +11,7 @@ import { AssociationService } from './association.service';
 export class AssociationComponent implements OnInit, OnDestroy {
   eventSubscriber: Subscription = new Subscription();
   refuges: IRefuge[];
+  showLoader: Boolean = true;
 
   constructor(protected associationService: AssociationService) {}
 
@@ -26,6 +27,7 @@ export class AssociationComponent implements OnInit, OnDestroy {
     this.eventSubscriber.add(
       this.associationService.findAll().subscribe(res => {
         this.refuges = res;
+        this.showLoader = false;
       })
     );
   }

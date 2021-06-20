@@ -5,24 +5,31 @@
     (onAgeSelected)="setAgeFilter($event)"
     (onCleanSelected)="cleanFilters()"
   ></app-filters>
-  <p *ngIf="results > 0" class="results mt-3 mb-2">
-    {{ results }} resultados encontrados
-  </p>
-  <p *ngIf="results == 0" class="results mt-3 mb-2">
-    No se encontraron resultados
-  </p>
-  <div class="mt-1">
-    <div class="row g-0">
-      <div
-        *ngFor="let pet of pets"
-        class="col-xxs-12 col-xs-6 col-sm-4 col-md-3 col-lg-3 col-xl-2 my-2"
-      >
-        <app-pet-tile [pet]="pet"></app-pet-tile>
-      </div>
+  <div *ngIf="showLoader" class="spinner-style">
+    <div class="spinner-border text-primary" role="status">
+      <span class="sr-only">Loading...</span>
     </div>
   </div>
-  <app-empty-pet-list
-    class="container-empty-list"
-    *ngIf="results == 0"
-  ></app-empty-pet-list>
+  <div *ngIf="!showLoader">
+    <p *ngIf="results > 0" class="results mt-3 mb-2">
+      {{ results }} resultados encontrados
+    </p>
+    <p *ngIf="results == 0" class="results mt-3 mb-2">
+      No se encontraron resultados
+    </p>
+    <div class="mt-1">
+      <div class="row g-0">
+        <div
+          *ngFor="let pet of pets"
+          class="col-xxs-12 col-xs-6 col-sm-4 col-md-3 col-lg-3 col-xl-2 my-2"
+        >
+          <app-pet-tile [pet]="pet"></app-pet-tile>
+        </div>
+      </div>
+    </div>
+    <app-empty-pet-list
+      class="container-empty-list"
+      *ngIf="results == 0"
+    ></app-empty-pet-list>
+  </div>
 </div>
