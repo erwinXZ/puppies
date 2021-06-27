@@ -1,0 +1,60 @@
+.main-logo {
+  width: 119.78px;
+  height: 75.7px;
+}
+
+.custom-input {
+  height: 44px;
+  left: 19px;
+  border-radius: 5px;
+  padding: 15px;
+}
+
+.text-grey {
+  font-weight: 500;
+  font-size: 14px;
+
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.link {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  padding-top: 3px;
+
+  color: #28b0a2;
+}
+
+.button-cyan {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 15px;
+
+  width: 100%;
+  height: 47px;
+
+  background: #28b0a2;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+
+  text-align: center;
+
+  color: #fffdfd;
+}
+
+.text-profile {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  margin-top: 73px;
+
+  color: rgba(0, 0, 0, 0.5);
+}
