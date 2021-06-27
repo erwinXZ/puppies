@@ -3,6 +3,7 @@ import { IAssociationCounter } from 'src/app/shared/model/association-counter.mo
 import { ActivatedRoute } from '@angular/router';
 import { AssociationService } from '../association.service';
 import { IRefuge } from 'src/app/shared/model/refuge.model';
+import { WhatsAppServiceService } from 'src/app/shared/services/whats-app-service.service';
 
 @Component({
   selector: 'app-association-detail',
@@ -23,7 +24,8 @@ export class AssociationDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    protected associationService: AssociationService
+    protected associationService: AssociationService,
+    protected whatsAppServiceService: WhatsAppServiceService
   ) {
     this.route.params.subscribe(params => {
       this.id = params['id'];
@@ -50,6 +52,6 @@ export class AssociationDetailComponent implements OnInit {
   }
 
   getWhatsApp() {
-    return 'https://wa.me/591' + this.refuge.cellphone;
+    return this.whatsAppServiceService.getWhatsAppLink(this.refuge.cellphone);
   }
 }

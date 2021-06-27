@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { IconsKey } from 'src/app/shared/constants/enum.constants';
 import { IPet } from 'src/app/shared/model/pet.model';
 import { PetFirebaseService } from 'src/app/shared/services/pet-firebase.service';
+import { WhatsAppServiceService } from 'src/app/shared/services/whats-app-service.service';
 
 @Component({
   selector: 'app-pet-detail',
@@ -14,17 +15,13 @@ export class PetDetailComponent implements OnInit {
   iconsKey = IconsKey;
   whatsappLink = '';
 
-  constructor(protected activatedRoute: ActivatedRoute, protected petFirebaseService: PetFirebaseService) {
+  constructor(protected activatedRoute: ActivatedRoute, protected petFirebaseService: PetFirebaseService, protected whatsAppServiceService: WhatsAppServiceService) {
     this.activatedRoute.params.subscribe(params => {
       this.petFirebaseService.findOne(params['id']).subscribe((pet: IPet) => {
         this.pet = pet;
-        this.setWhatsapp(this.pet.cellphone);
+        this.whatsappLink = this.whatsAppServiceService.getWhatsAppLink(this.pet.cellphone, 'Hola! Me interesa adoptar a ' + this.pet.name);
       });
     });
-  }
-
-  setWhatsapp(cellphone) {
-    this.whatsappLink = 'https://wa.me/' + cellphone + '?text=' + encodeURIComponent('Hola! Me interesa adoptar a ' + this.pet.name);
   }
 
   ngOnInit(): void {
