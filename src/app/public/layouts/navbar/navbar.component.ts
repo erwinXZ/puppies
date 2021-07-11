@@ -20,14 +20,14 @@ export class NavbarComponent implements OnInit {
     },
     {
       key: NavBarKey.Form,
-      route: 'admin',
+      route: 'help',
       selected: false
     }
   ];
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 
   onNavBarItemClick(indexNavBar: number) {
     this.navBarItems.map((navBarItem, index) => {
