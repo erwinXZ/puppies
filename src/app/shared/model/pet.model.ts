@@ -16,6 +16,7 @@ export interface IPet {
   specie: Specie;
   vaccinated?: string;
   weight?: string;
+  hasWhatsApp?: boolean;
   whatsappLink?: string;
   refugeName?: string;
   createdDate?: Moment;

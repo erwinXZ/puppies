@@ -20,6 +20,7 @@ import { SecondPageComponent } from './public/splash/second-page/second-page.com
 import { SplashComponent } from './public/splash/splash.component';
 import { ThirdPageComponent } from './public/splash/third-page/third-page.component';
 import { SharedModule } from './shared/shared.module';
+import { HelpModule } from './public/help/help.module';
 
 const config = {
   apiKey: environment.apiKey,
@@ -48,6 +49,7 @@ const config = {
     AdoptionModule,
     AssociationModule,
     LoginModule,
+    HelpModule,
     SvgIconsModule.forRoot({ icons: [svgIconMore] }),
     AngularFireModule.initializeApp(config),
     AngularFirestoreModule,

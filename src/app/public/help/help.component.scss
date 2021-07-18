@@ -1,0 +1,49 @@
+.logo {
+  margin-top: 48px;
+}
+
+.button-style,
+.register-button {
+  width: 100%;
+  margin-top: 20px;
+  margin-left: 15px;
+  margin-right: 15px;
+  padding: 20px 15px 20px 15px;
+  box-shadow: 0px 5px 7px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  border: 0px;
+
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  color: #000000;
+  text-align: left;
+}
+
+.register-button {
+  margin-top: 52px;
+  background: #28b0a2;
+  color: #ffffff;
+}
+
+.social-network-text {
+  margin-top: 40px;
+  color: #28b0a2;
+  font-weight: 800;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+.social-network-logos {
+  width: 30px;
+  height: 30px;
+  margin-right: 15px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

@@ -11,3 +11,14 @@
   display: flex;
   text-align: center;
 }
+
+.spinner-style {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -50px;
+}
+
+.spinner-grow {
+  color: #28b0a2;
+}
