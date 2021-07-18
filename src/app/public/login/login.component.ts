@@ -32,7 +32,6 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.get('email').valid && this.loginForm.get('password').valid) {
       this.invalid = false;
       this.userAuthService.login(this.loginForm.get('email').value, this.loginForm.get('password').value, this.loginForm.get('rememberMe').value).then(value => {
-        console.log('Nice, it worked!', value);
         this.router.navigateByUrl('/association-profile');
       }).catch(err => {
         this.errorMessage = this.firebaseErrorsService.parseError(err.code);

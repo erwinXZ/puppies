@@ -11,7 +11,6 @@ export class TogglePasswordDirective implements OnInit {
   constructor(private el: ElementRef) { }
 
   ngOnInit() {
-    console.log('border', this.border);
     const parent = this.el.nativeElement.parentNode;
     const input = this.el.nativeElement;
     const button = document.createElement('button');

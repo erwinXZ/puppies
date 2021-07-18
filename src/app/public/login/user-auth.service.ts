@@ -15,16 +15,6 @@ export class UserAuthService {
     return this.afAuth.signInWithEmailAndPassword(email, password);
   }
 
-  emailSignup(email: string, password: string) {
-    this.afAuth.createUserWithEmailAndPassword(email, password)
-      .then(value => {
-        console.log('Sucess', value);
-      })
-      .catch(error => {
-        console.log('Something went wrong: ', error);
-      });
-  }
-
   logout() {
     return this.afAuth.signOut();
   }
