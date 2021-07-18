@@ -7,12 +7,23 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class CarouselComponent implements OnInit {
 
+  @Input() carouselType: string;
   @Input() mainImage: string;
   @Input() images: string[] = [];
 
   constructor() { }
 
   ngOnInit(): void {
-    this.images.unshift(this.mainImage);
+    if (this.images) {
+      if (this.mainImage) {
+        this.images.unshift(this.mainImage)
+      }
+    } else {
+      if (this.mainImage) {
+        this.images = [this.mainImage];
+      } else {
+        this.images = []
+      }
+    }
   }
 }

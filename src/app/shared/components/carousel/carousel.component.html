@@ -1,5 +1,9 @@
 <div class="carousel">
-  <div class="image-container" *ngFor="let image of images" >
+  <div class="image-container" *ngFor="let image of images">
     <img [src]="image">
+  </div>
+  <div *ngIf="images.length == 0" class="image-container">
+    <img class="default-image" *ngIf="carouselType == 'association'" src="/assets/svg/association-tile-bg.svg">
+    <img class="default-image" *ngIf="carouselType == 'pet'" src="/assets/svg/pet-tile-background.svg">
   </div>
 </div>
