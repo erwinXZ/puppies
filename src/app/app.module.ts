@@ -15,8 +15,6 @@ import { FooterComponent } from './public/layouts/footer/footer.component';
 import { MainComponent } from './public/layouts/main/main.component';
 import { NavbarComponent } from './public/layouts/navbar/navbar.component';
 import { LoginModule } from './public/login/login.module';
-import { NewPasswordRequestModule } from './public/new-password-request/new-password-request.module';
-import { NewPasswordModule } from './public/new-password/new-password.module';
 import { FirstPageComponent } from './public/splash/first-page/first-page.component';
 import { SecondPageComponent } from './public/splash/second-page/second-page.component';
 import { SplashComponent } from './public/splash/splash.component';
@@ -50,8 +48,6 @@ const config = {
     AdoptionModule,
     AssociationModule,
     LoginModule,
-    NewPasswordRequestModule,
-    NewPasswordModule,
     SvgIconsModule.forRoot({ icons: [svgIconMore] }),
     AngularFireModule.initializeApp(config),
     AngularFirestoreModule,

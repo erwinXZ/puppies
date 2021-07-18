@@ -10,6 +10,7 @@ import { GenrePipe } from './util/genre.pipe';
 import { BirthdayPipe } from './util/birthday.pipe';
 import { CustomDatePipe } from './util/custom-date.pipe';
 import { TogglePasswordDirective } from './util/toggle-password.directive';
+import { CustomModalComponent } from './components/custom-modal/custom-modal.component';
 
 @NgModule({
   imports: [SharedLibsModule],
@@ -19,6 +20,7 @@ import { TogglePasswordDirective } from './util/toggle-password.directive';
     CustomDatePipe,
     TogglePasswordDirective,
     CarouselComponent,
+    CustomModalComponent,
     CustomSvgComponent,
     PetListComponent,
     PetTileComponent,
@@ -32,6 +34,7 @@ import { TogglePasswordDirective } from './util/toggle-password.directive';
     CustomDatePipe,
     TogglePasswordDirective,
     CarouselComponent,
+    CustomModalComponent,
     CustomSvgComponent,
     PetListComponent,
   ]

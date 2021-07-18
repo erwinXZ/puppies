@@ -32,14 +32,14 @@
             Tu contraseña es requerida
           </small>
           <small class="form-text text-danger" *ngIf="loginForm.get('password').errors.minlength">
-            Tu contraseña debe tener por lo menos 4 caracteres
+            Tu contraseña debe tener por lo menos 8 caracteres
           </small>
           <small class="form-text text-danger" *ngIf="loginForm.get('password').errors.maxlength">
             Tu contraseña no puede ser mayor a 50 caracteres
           </small>
         </div>
       </div>
-      <div class="form-check" style="height: 25px;">
+      <div class="form-check">
         <label class="form-check-label float-left text-grey" for="rememberMe">
           <input class="form-check-input" type="checkbox" name="rememberMe" id="rememberMe"
             formControlName="rememberMe">
@@ -48,12 +48,14 @@
         <a class="link float-right align-middle" [routerLink]="['/', 'new-password-request']">¿Olvidaste tu
           contraseña?</a>
       </div>
-      <div *ngIf="errorLogin">
+      <br/>
+      <div *ngIf="errorMessage">
         <small class="form-text text-danger">
           {{ errorMessage }}
         </small>
       </div>
-      <button type="submit" class="btn button-cyan d-flex align-items-center justify-content-center my-5"
+      <br />
+      <button type="submit" class="btn button-cyan d-flex align-items-center justify-content-center"
         [disabled]="isLogin" (click)="login()">Iniciar Sesión</button>
     </form>
   </div>

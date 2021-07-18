@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FirebaseErrorsService } from 'src/app/shared/services/firebase-errors.service';
 
 @Component({
   selector: 'app-new-password-request',
@@ -14,8 +15,9 @@ export class NewPasswordRequestComponent implements OnInit {
   });
 
   formSubmitted = false;
+  errorMessage: string;
 
-  constructor(private afAuth: AngularFireAuth, private fb: FormBuilder) { }
+  constructor(private afAuth: AngularFireAuth, private fb: FormBuilder, private firebaseErrorsService: FirebaseErrorsService) { }
 
   ngOnInit(): void {
   }
@@ -25,11 +27,9 @@ export class NewPasswordRequestComponent implements OnInit {
 
     this.afAuth.sendPasswordResetEmail(email).then(
       () => {
-        // success, show some message
         this.formSubmitted = true;
-      },
-      err => {
-        // handle errors
+      }, err => {
+        this.errorMessage = this.firebaseErrorsService.parseError(err.code);
       }
     );
   }

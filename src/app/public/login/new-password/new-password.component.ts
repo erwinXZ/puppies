@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { FirebaseErrorsService } from 'src/app/shared/services/firebase-errors.service';
 
 @Component({
   selector: 'app-new-password',
@@ -13,32 +14,33 @@ export class NewPasswordComponent implements OnInit {
   mode = this.activatedActivated.snapshot.queryParams['mode'];
 
   setNewPasswordForm = this.fb.group({
-    password: [null, [Validators.required]],
-    confirmPassword: [null, [Validators.required]]
+    password: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(50), Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')]],
+    confirmPassword: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(50)]]
   });
+  errorMessage: string;
 
-  constructor(private afAuth: AngularFireAuth, private fb: FormBuilder, private activatedActivated: ActivatedRoute, private router: Router) { }
+  constructor(private afAuth: AngularFireAuth, private fb: FormBuilder, private activatedActivated: ActivatedRoute, private router: Router, private firebaseErrorsService: FirebaseErrorsService) { }
 
   ngOnInit(): void {
   }
 
-  setPassword() {
+  resetPassword() {
     const password = this.setNewPasswordForm.controls['password'].value;
     const confirmPassword = this.setNewPasswordForm.controls['confirmPassword'].value;
 
     if (password !== confirmPassword) {
-      // react to error
+      this.errorMessage = 'Las contraseñas deben ser iguales';
       return;
+    } else {
+      this.errorMessage = undefined;
     }
 
     const code = this.activatedActivated.snapshot.queryParams['oobCode'];
     this.afAuth
       .confirmPasswordReset(code, password)
-      .then(() => this.router.navigate(['login']))
+      .then(() => this.router.navigate(['/new-password', 'reset-password-completed']))
       .catch(err => {
-        // const errorMessage = FirebaseErrors.Parse(err.code); // check this helper class at the bottom
+        this.errorMessage = this.firebaseErrorsService.parseError(err.code);
       });
   }
-
-  // reset() {}
 }
