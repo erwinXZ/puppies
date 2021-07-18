@@ -19,9 +19,8 @@ import { CounterComponent } from './association-detail/counter/counter.component
     CounterComponent
   ],
   imports: [
-    CommonModule,
     SharedModule,
     RouterModule.forChild([ASSOCIATION_ROUTE, ASSOCIATION_DETAIL_ROUTE])
   ]
 })
-export class AssociationModule {}
+export class AssociationModule { }

@@ -1,0 +1,64 @@
+<div>
+  <div class="d-flex justify-content-center my-5">
+    <img class="main-logo" src="/assets/svg/main-logo.svg"><img>
+  </div>
+
+  <div>
+    <form class="form" role="form" (ngSubmit)="login()" [formGroup]="loginForm">
+      <div class="form-group">
+        <input type="text" class="form-control custom-input" placeholder="Correo electrónico" formControlName="email" />
+        <div
+          *ngIf="invalid && loginForm.get('email').invalid && (loginForm.get('email').dirty || loginForm.get('email').touched)">
+          <small class="form-text text-danger" *ngIf="loginForm.get('email').errors.required">
+            Tu correo electrónico es requerido
+          </small>
+          <small class="form-text text-danger" *ngIf="loginForm.get('email').errors.maxlength">
+            Tu correo electrónico no puede ser mayor a 250 caracteres
+          </small>
+          <small class="form-text text-danger" *ngIf="loginForm.get('email').errors.email">
+            Tu correo eletrónico no es válido
+          </small>
+        </div>
+      </div>
+      <div class="form-group">
+        <div>
+          <input togglePassword type="password" class="form-control" placeholder="Contraseña"
+            formControlName="password" />
+        </div>
+        <div
+          *ngIf="invalid && loginForm.get('password').invalid && (loginForm.get('password').dirty || loginForm.get('password').touched)">
+          <small class="form-text text-danger" *ngIf="loginForm.get('password').errors.required"
+            jhiTranslate="global.messages.validate.newpassword.required">
+            Tu contraseña es requerida
+          </small>
+          <small class="form-text text-danger" *ngIf="loginForm.get('password').errors.minlength">
+            Tu contraseña debe tener por lo menos 8 caracteres
+          </small>
+          <small class="form-text text-danger" *ngIf="loginForm.get('password').errors.maxlength">
+            Tu contraseña no puede ser mayor a 50 caracteres
+          </small>
+        </div>
+      </div>
+      <div class="form-check">
+        <label class="form-check-label float-left text-grey" for="rememberMe">
+          <input class="form-check-input" type="checkbox" name="rememberMe" id="rememberMe"
+            formControlName="rememberMe">
+          <span class="">Rercuérdame</span>
+        </label>
+        <a class="link float-right align-middle" [routerLink]="['/new-password-request']">¿Olvidaste tu
+          contraseña?</a>
+      </div>
+      <br/>
+      <div *ngIf="errorMessage">
+        <small class="form-text text-danger">
+          {{ errorMessage }}
+        </small>
+      </div>
+      <br />
+      <button type="submit" class="btn button-cyan d-flex align-items-center justify-content-center"
+        [disabled]="isLogin" (click)="login()">Iniciar Sesión</button>
+    </form>
+  </div>
+  <p class="text-profile">¿No tienes un Perfil? <a class="link">Registra tu asociación</a></p>
+
+</div>

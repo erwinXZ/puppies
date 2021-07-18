@@ -14,6 +14,7 @@ import { AssociationModule } from './public/association/association.module';
 import { FooterComponent } from './public/layouts/footer/footer.component';
 import { MainComponent } from './public/layouts/main/main.component';
 import { NavbarComponent } from './public/layouts/navbar/navbar.component';
+import { LoginModule } from './public/login/login.module';
 import { FirstPageComponent } from './public/splash/first-page/first-page.component';
 import { SecondPageComponent } from './public/splash/second-page/second-page.component';
 import { SplashComponent } from './public/splash/splash.component';
@@ -47,6 +48,7 @@ const config = {
     RouterModule,
     AdoptionModule,
     AssociationModule,
+    LoginModule,
     HelpModule,
     SvgIconsModule.forRoot({ icons: [svgIconMore] }),
     AngularFireModule.initializeApp(config),
@@ -57,4 +59,4 @@ const config = {
   bootstrap: [MainComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class AppModule {}
+export class AppModule { }

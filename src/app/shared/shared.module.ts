@@ -9,6 +9,8 @@ import { EmptyPetListComponent } from './components/pet-list/empty-pet-list/empt
 import { GenrePipe } from './util/genre.pipe';
 import { BirthdayPipe } from './util/birthday.pipe';
 import { CustomDatePipe } from './util/custom-date.pipe';
+import { TogglePasswordDirective } from './util/toggle-password.directive';
+import { CustomModalComponent } from './components/custom-modal/custom-modal.component';
 
 @NgModule({
   imports: [SharedLibsModule],
@@ -16,7 +18,9 @@ import { CustomDatePipe } from './util/custom-date.pipe';
     GenrePipe,
     BirthdayPipe,
     CustomDatePipe,
+    TogglePasswordDirective,
     CarouselComponent,
+    CustomModalComponent,
     CustomSvgComponent,
     PetListComponent,
     PetTileComponent,
@@ -28,7 +32,9 @@ import { CustomDatePipe } from './util/custom-date.pipe';
     GenrePipe,
     BirthdayPipe,
     CustomDatePipe,
+    TogglePasswordDirective,
     CarouselComponent,
+    CustomModalComponent,
     CustomSvgComponent,
     PetListComponent,
   ]

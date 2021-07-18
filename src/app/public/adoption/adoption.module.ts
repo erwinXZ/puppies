@@ -11,7 +11,6 @@ import { PetAttributeComponent } from './pet-attribute/pet-attribute.component';
   declarations: [AdoptionComponent, PetDetailComponent, PetAttributeComponent],
   imports: [
     SharedModule,
-    CommonModule,
     RouterModule.forChild(ADOPTION_ROUTE)
   ]
 })
