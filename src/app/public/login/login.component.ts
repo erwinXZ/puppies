@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { FirebaseErrorsService } from 'src/app/shared/services/firebase-errors.service';
 import { UserAuthService } from './user-auth.service';
 
 @Component({
@@ -17,9 +18,10 @@ export class LoginComponent implements OnInit {
   });
   invalid;
   errorLogin: boolean;
+  errorMessage: string;
   isLogin = false;
 
-  constructor(private fb: FormBuilder, private userAuthService: UserAuthService, private router: Router) { }
+  constructor(private fb: FormBuilder, private userAuthService: UserAuthService, private router: Router, private firebaseErrorsService: FirebaseErrorsService) { }
 
   ngOnInit(): void {
   }
@@ -31,11 +33,11 @@ export class LoginComponent implements OnInit {
       this.userAuthService.login(this.loginForm.get('email').value, this.loginForm.get('password').value, this.loginForm.get('rememberMe').value).then(value => {
         console.log('Nice, it worked!', value);
         this.router.navigateByUrl('/association-profile');
-      })
-        .catch(err => {
-          console.log('Something went wrong: ', err.message);
-          this.errorLogin = true;
-        });
+      }).catch(err => {
+        console.log('Something went wrong: ', err.message);
+        this.errorLogin = true;
+        this.errorMessage = this.firebaseErrorsService.parseError(err.code);
+      });
     } else {
       this.invalid = true;
     }
